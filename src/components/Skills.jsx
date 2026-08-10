@@ -1,16 +1,17 @@
 import { SKILLS } from '../data.js'
+import SectionHeading from "./SectionHeading.jsx";
 
 export default function Skills() {
   return (
     <section id="skills">
-      <div className="section-row">
-        <div className="section-label">Skills</div>
-        <div className="pill-row">
-          {SKILLS.map((skill) => (
-            <span className="pill" key={skill}>{skill}</span>
-          ))}
-        </div>
+      <SectionHeading>Skills</SectionHeading>
+      <div className="pt-4 pill-row">
+        {SKILLS.map((skill) => (
+          <span className="pill" key={skill}>
+            {skill}
+          </span>
+        ))}
       </div>
     </section>
-  )
+  );
 }

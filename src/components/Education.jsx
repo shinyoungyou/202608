@@ -1,19 +1,18 @@
-import { EDUCATION } from '../data.js'
+import { EDUCATION } from "../data.js";
+import SectionHeading from "./SectionHeading.jsx";
 
 export default function Education() {
   return (
     <section id="education">
-      <div className="section-row">
-        <div className="section-label">Education</div>
-        <div>
-          {EDUCATION.map((item) => (
-            <div className="edu-item" key={item.name}>
-              <div className="name">{item.name}</div>
-              <div className="meta">{item.meta}</div>
-            </div>
-          ))}
-        </div>
+      <SectionHeading>Education</SectionHeading>
+      <div className="pt-4">
+        {EDUCATION.map((item) => (
+          <div className="edu-item" key={item.name}>
+            <div className="name">{item.name}</div>
+            <div className="meta">{item.meta}</div>
+          </div>
+        ))}
       </div>
     </section>
-  )
+  );
 }

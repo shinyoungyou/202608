@@ -6,21 +6,27 @@
 
 export const IDENTITY = {
   name: "Shinyoung You",
-  role: "Security Operations, Cloud Engineering, & Application Security",
-  photo: "public/img/profile1.jpeg",
+  pronouns: "she/her",
+  role: "Security Operations, Cloud Engineering & Application Security",
+  certifications: "CompTIA Security+ & ISC2 CC Certified",
+  photo: "img/profile1.jpeg",
   location: "Vancouver, BC",
   phone: "+1 778 992 1553",
   email: "shinyoungyou2@gmail.com",
+  schoolEmail: "syou17@my.bcit.ca",
+  schoolEmailExpiry: "Active until Dec 2028",
   github: "https://github.com/shinyoungyou",
   linkedin: "https://linkedin.com/in/shinyoungyou",
-}
+};
 
 export const NAV_ITEMS = [
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Work Experience" },
   { id: "projects", label: "Projects" },
+  { id: "experience", label: "Work Experience" },
   { id: "education", label: "Education" },
-]
+  { id: "certifications", label: "Certifications" },
+  { id: "about", label: "About Me" },
+  { id: "skills", label: "Skills" },
+];
 
 export const SKILLS = [
   "Python", ".NET", "C#", "JavaScript", "HTML", "CSS",
@@ -109,3 +115,25 @@ export const EDUCATION = [
     meta: "2023",
   },
 ]
+
+export const CERTIFICATIONS = [
+  {
+    name: "CompTIA Security+",
+    issuer: "CompTIA",
+    status: "Certified",
+  },
+  {
+    name: "Certified in Cybersecurity (CC)",
+    issuer: "ISC2",
+    status: "Certified",
+  },
+];
+
+export const ABOUT = {
+  heading: "A Little Bit About Me..",
+  paragraphs: [
+    "Hello, it’s Shinyoung You. Thanks for visiting! On my website, you can check all my work in cybersecurity and secure web/mobile application development, which I’m really into and have been building over the past 3 years through school projects and independent initiatives.",
+    "I have a software development educational background dating back to 2022. After completing my SOC Analyst Co-op at Vancity Credit Union in December 2025, I expanded my focus into networking and cybersecurity. As a result, I earned my CompTIA Security+ (July 2026) and ISC2 CC (December 2025) certifications. Currently, I am in my final semester of the Computer Systems Technology program (specialized in Cloud Computing) at BCIT.",
+  ],
+  signoff: "Hope you find it interesting :)",
+};

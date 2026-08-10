@@ -5,6 +5,8 @@ import Skills from './components/Skills.jsx'
 import Experience from './components/Experience.jsx'
 import Projects from './components/Projects.jsx'
 import Education from './components/Education.jsx'
+import Certifications from "./components/Certifications.jsx";
+import About from "./components/About.jsx";
 import Footer from './components/Footer.jsx'
 import { useScrollSpy } from './hooks/useScrollSpy.js'
 import { NAV_ITEMS } from './data.js'
@@ -25,14 +27,16 @@ export default function App() {
         <SideNav activeId={activeId} />
 
         <main>
-          <Skills />
-          <Experience />
           <Projects />
+          <Experience />
           <Education />
+          <Certifications />
+          <About />
+          <Skills />
         </main>
       </div>
 
       <Footer />
     </>
-  )
+  );
 }
