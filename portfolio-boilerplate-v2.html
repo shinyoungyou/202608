@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinyoung You — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     TOKENS — edit these to re-skin the whole page
+     ============================================================ */
+  :root{
+    --terracotta: #d97a5c;
+    --terracotta-dark: #c76a4d;
+    --navy: #2c2e4a;
+    --ink: #2a2a35;
+    --ink-dim: #6b6b78;
+    --line: #ececf1;
+    --bg: #ffffff;
+    --panel: #faf9f7;
+    --font-head: 'Poppins', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --sidebar-w: 230px;
+    --radius: 999px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--navy);
+    outline-offset: 3px;
+  }
+
+  h1,h2,h3{ font-family: var(--font-head); margin:0; color: var(--ink); }
+
+  .section-label{
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  /* ============================================================
+     ANGLED HEADER BANNER — the "edge" element
+     ============================================================ */
+  .banner{
+    position: relative;
+    height: 190px;
+    background: var(--terracotta);
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+  }
+  .banner::before{
+    content:"";
+    position:absolute; inset:0;
+    background: var(--navy);
+    clip-path: polygon(0 0, 46% 0, 6% 100%, 0 62%);
+  }
+
+  .avatar-wrap{
+    display:flex; justify-content:center;
+    margin-top: -78px;
+    position: relative;
+    z-index: 2;
+  }
+  .avatar{
+    width: 156px; height: 156px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--panel), #fff);
+    border: 5px solid #fff;
+    box-shadow: 0 8px 24px rgba(44,46,74,0.18);
+    display:flex; align-items:center; justify-content:center;
+    overflow: hidden;
+  }
+  .avatar svg{ width: 72%; height: 72%; color: var(--terracotta); }
+  /* To use a real photo instead: replace the <svg> inside .avatar
+     with <img src="your-photo.jpg" alt="Your Name" style="width:100%;height:100%;object-fit:cover;"> */
+
+  .identity{ text-align:center; padding: 16px 24px 0; }
+  .identity .name{ font-size: clamp(30px, 4vw, 42px); font-weight: 700; }
+  .identity .role{
+    color: var(--terracotta-dark); font-weight: 600; margin-top: 6px; font-size: 15px;
+  }
+  .identity .contact{
+    color: var(--ink-dim); font-size: 13.5px; margin-top: 14px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap: 6px 4px;
+  }
+  .identity .contact a:hover{ color: var(--terracotta-dark); }
+  .identity .contact .sep{ color: var(--line); }
+
+  /* ============================================================
+     LAYOUT — sticky sidebar + content column
+     ============================================================ */
+  .layout{
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    gap: 40px;
+    padding: 56px 24px 100px;
+  }
+
+  nav.sidenav{
+    align-self: start;
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  nav.sidenav a{
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    padding: 10px 4px 10px 16px;
+    border-left: 2px solid var(--line);
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidenav a:hover{ color: var(--ink); }
+  nav.sidenav a.active{
+    color: var(--terracotta-dark);
+    border-left-color: var(--terracotta);
+  }
+
+  /* mobile top nav (shown < 860px) */
+  nav.topnav{
+    display:none;
+    position: sticky; top:0; z-index: 10;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
+    gap: 18px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav.topnav a{
+    font-family: var(--font-head);
+    font-weight: 600; font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase; white-space: nowrap;
+    color: var(--ink-dim); text-decoration:none;
+    padding-bottom: 6px; border-bottom: 2px solid transparent;
+  }
+  nav.topnav a.active{ color: var(--terracotta-dark); border-bottom-color: var(--terracotta); }
+
+  main{ min-width: 0; }
+  section{ margin-bottom: 60px; scroll-margin-top: 24px; }
+  section:last-child{ margin-bottom: 0; }
+
+  .section-row{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 620px){
+    .section-row{ grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* ============================================================
+     SKILLS
+     ============================================================ */
+  .pill-row{ display:flex; flex-wrap:wrap; gap: 8px; }
+  .pill{
+    background: var(--terracotta);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: var(--radius);
+    white-space: nowrap;
+  }
+  .pill.outline{
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+
+  /* ============================================================
+     WORK EXPERIENCE
+     ============================================================ */
+  .job{ margin-bottom: 32px; }
+  .job:last-child{ margin-bottom: 0; }
+  .job-head{ display:flex; align-items:center; gap: 10px; }
+  .job-icon{
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 13px; flex: none;
+  }
+  .job-title{ font-weight: 700; font-size: 16.5px; }
+  .job-meta{ color: var(--ink-dim); font-size: 13px; margin: 4px 0 12px 40px; }
+  .job ul{ margin: 0 0 12px 40px; padding-left: 18px; color: var(--ink); font-size: 14px; }
+  .job li{ margin-bottom: 6px; }
+  .job .pill-row{ margin-left: 40px; }
+
+  /* ============================================================
+     PROJECTS — category filter + cards
+     ============================================================ */
+  .filter-row{ display:flex; flex-wrap:wrap; gap: 8px; margin-bottom: 24px; }
+  .filter-chip{
+    font-family: var(--font-body);
+    font-size: 12.5px; font-weight: 600;
+    color: var(--navy);
+    background: var(--panel);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 7px 14px;
+    cursor: pointer;
+    display:flex; align-items:center; gap:7px;
+    transition: background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .filter-chip .count{
+    font-size: 10.5px; background: rgba(44,46,74,0.08);
+    border-radius: var(--radius); padding: 1px 6px;
+  }
+  .filter-chip:hover{ border-color: var(--terracotta); }
+  .filter-chip[aria-pressed="true"]{
+    background: var(--terracotta); border-color: var(--terracotta); color: #fff;
+  }
+  .filter-chip[aria-pressed="true"] .count{ background: rgba(255,255,255,0.25); color:#fff; }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 620px){ .project-grid{ grid-template-columns: 1fr; } }
+
+  .card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    display:flex; flex-direction:column; gap: 10px;
+    transition: box-shadow .15s ease, transform .15s ease;
+  }
+  .card:hover{ box-shadow: 0 10px 24px rgba(44,46,74,0.08); transform: translateY(-2px); }
+  .card h3{ font-size: 16.5px; }
+  .card .desc{ color: var(--ink-dim); font-size: 13.5px; }
+  .card .pill-row{ margin-top: auto; }
+  .card .pill.small{ font-size: 11px; padding: 5px 12px; }
+  .card .links{ display:flex; gap:14px; font-size: 12.5px; font-weight:600; margin-top: 2px; }
+  .card .links a{ color: var(--terracotta-dark); text-decoration:none; }
+  .card .links a:hover{ text-decoration:underline; }
+
+  .empty-state{
+    grid-column: 1 / -1;
+    border: 1.5px dashed var(--line);
+    border-radius: 16px;
+    padding: 26px;
+    text-align:center;
+    color: var(--ink-dim);
+    font-size: 13.5px;
+  }
+
+  /* ============================================================
+     EDUCATION
+     ============================================================ */
+  .edu-item{ margin-bottom: 18px; }
+  .edu-item:last-child{ margin-bottom:0; }
+  .edu-item .name{ font-weight: 700; font-size: 15px; }
+  .edu-item .meta{ color: var(--ink-dim); font-size: 13px; margin-top: 2px; }
+
+  footer{
+    text-align:center; color: var(--ink-dim); font-size: 12px;
+    padding: 30px 24px 50px;
+  }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 860px){
+    .layout{ grid-template-columns: 1fr; padding-top: 0; }
+    nav.sidenav{ display:none; }
+    nav.topnav{ display:flex; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="banner"></div>
+
+  <div class="avatar-wrap">
+    <div class="avatar">
+      <img src="profile/profile1.jpeg" alt="Shinyoung You" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+
+  <div class="identity">
+    <h1 class="name">Shinyoung You</h1>
+    <div class="role">Security Operations, Cloud Engineering, &amp; Application Security</div>
+    <div class="contact">
+      <span>Vancouver, BC</span><span class="sep">|</span>
+      <span>+1 778 992 1553</span><span class="sep">|</span>
+      <a href="mailto:shinyoungyou2@gmail.com">shinyoungyou2@gmail.com</a><span class="sep">|</span>
+      <a href="https://github.com/shinyoungyou" target="_blank" rel="noopener">github.com/shinyoungyou</a><span class="sep">|</span>
+      <a href="https://linkedin.com/in/shinyoungyou" target="_blank" rel="noopener">linkedin.com/in/shinyoungyou</a>
+    </div>
+  </div>
+
+  <!-- mobile nav (shows under 860px) -->
+  <nav class="topnav" id="topnav" aria-label="Section navigation">
+    <a href="#skills" data-target="skills">Skills</a>
+    <a href="#experience" data-target="experience">Work Experience</a>
+    <a href="#projects" data-target="projects">Projects</a>
+    <a href="#education" data-target="education">Education</a>
+  </nav>
+
+  <div class="layout">
+    <nav class="sidenav" id="sidenav" aria-label="Section navigation">
+      <a href="#skills" data-target="skills">Skills</a>
+      <a href="#experience" data-target="experience">Work Experience</a>
+      <a href="#projects" data-target="projects">Projects</a>
+      <a href="#education" data-target="education">Education</a>
+    </nav>
+
+    <main>
+      <!-- ============================================================
+           SKILLS
+           ============================================================ -->
+      <section id="skills">
+        <div class="section-row">
+          <div class="section-label">Skills</div>
+          <div class="pill-row">
+            <span class="pill">Python</span>
+            <span class="pill">.NET</span>
+            <span class="pill">C#</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">React</span>
+            <span class="pill">Django</span>
+            <span class="pill">ASP.NET</span>
+            <span class="pill">Figma</span>
+            <span class="pill">Linux</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           WORK EXPERIENCE
+           ============================================================ -->
+      <section id="experience">
+        <div class="section-row">
+          <div class="section-label">Work<br>Experience</div>
+          <div>
+            <div class="job">
+              <div class="job-head">
+                <div class="job-icon">&lt;/&gt;</div>
+                <div class="job-title">Security Operations (SOC) Analyst Co-op</div>
+              </div>
+              <div class="job-meta">Vancity Credit Union · May 2025 — Dec 2025</div>
+              <ul>
+                <li>Investigated and managed 1,050+ ServiceNow security tickets, independently resolving ~70% and escalating the remaining ~30%; contributed 19% of annual SOC ticket volume while maintaining a low average MTTR of ~2 hours.</li>
+                <li>Cut average API response time by 35% through query and caching improvements.</li>
+              </ul>
+              <div class="pill-row">
+                <span class="pill outline">VB.NET / Python / C#</span>
+                <span class="pill outline">ASP.NET</span>
+                <span class="pill outline">Full-stack development</span>
+                <span class="pill outline">Data wrangling</span>
+                <span class="pill outline">MySQL</span>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-head">
+                <div class="job-icon">&lt;/&gt;</div>
+                <div class="job-title">Front-End Intern</div>
+              </div>
+              <div class="job-meta">Northline Systems · May 2022 — Aug 2022</div>
+              <ul>
+                <li>Shipped a component library adopted across four internal dashboards.</li>
+                <li>Partnered with design to translate Figma files into accessible React UI.</li>
+              </ul>
+              <div class="pill-row">
+                <span class="pill outline">React</span>
+                <span class="pill outline">TypeScript</span>
+                <span class="pill outline">Figma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           PROJECTS — filter buttons are generated from CATEGORIES
+           below; add/remove projects or categories in the script.
+           ============================================================ -->
+      <section id="projects">
+        <div class="section-row">
+          <div class="section-label">Projects</div>
+          <div>
+            <div class="filter-row" id="filterBar" role="tablist" aria-label="Filter projects by category"></div>
+            <div class="project-grid" id="projectGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           EDUCATION
+           ============================================================ -->
+      <section id="education">
+        <div class="section-row">
+          <div class="section-label">Education</div>
+          <div>
+            <div class="edu-item">
+              <div class="name">B.Sc. Computer Science</div>
+              <div class="meta">University of British Columbia · 2019 — 2023</div>
+            </div>
+            <div class="edu-item">
+              <div class="name">AWS Certified Solutions Architect</div>
+              <div class="meta">2023</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>Built with a plain HTML/CSS/JS boilerplate — no build step required.</footer>
+
+<script>
+(function(){
+  /* ============================================================
+     PROJECT DATA — the only part you need to edit to add, remove,
+     or recategorize projects. A project can list more than one
+     category (e.g. Project A below spans both Application
+     Security and Networking).
+     ============================================================ */
+  const CATEGORIES = [
+    "Application Security",
+    "DevOps",
+    "Cloud",
+    "Networking",
+    "IoT",
+    "Accessibility",
+    "Legacy"
+  ];
+
+  const PROJECTS = [
+    {
+      id: "Project A",
+      categories: ["Application Security", "Networking"],
+      desc: "Traffic-inspecting reverse proxy that flags anomalous request patterns in real time.",
+      tech: ["Go", "eBPF", "Redis"],
+      repo: "https://github.com/example/project-a",
+      demo: null
+    },
+    {
+      id: "Project B",
+      categories: ["Application Security"],
+      desc: "Static analysis rule set for catching auth-bypass patterns before code review.",
+      tech: ["Python", "Semgrep"],
+      repo: "https://github.com/example/project-b",
+      demo: null
+    },
+    {
+      id: "Project C",
+      categories: ["DevOps"],
+      desc: "Zero-downtime deployment pipeline with automatic rollback on health-check failure.",
+      tech: ["GitHub Actions", "Terraform", "AWS"],
+      repo: "https://github.com/example/project-c",
+      demo: null
+    },
+    {
+      id: "Project D",
+      categories: ["Networking"],
+      desc: "Lightweight VPN mesh for connecting distributed home-lab nodes over WireGuard.",
+      tech: ["WireGuard", "Bash"],
+      repo: "https://github.com/example/project-d",
+      demo: null
+    }
+    // Add more here, e.g.:
+    // { id: "Project E", categories: ["Cloud"], desc: "...", tech: ["..."], repo: "...", demo: "..." },
+  ];
+
+  /* ============================================================
+     PROJECT RENDER LOGIC — no edits usually needed below
+     ============================================================ */
+  const filterBar = document.getElementById('filterBar');
+  const grid = document.getElementById('projectGrid');
+  let active = "ALL";
+
+  function countFor(cat){
+    return cat === "ALL" ? PROJECTS.length : PROJECTS.filter(p => p.categories.includes(cat)).length;
+  }
+
+  function renderFilters(){
+    const cats = ["ALL", ...CATEGORIES];
+    filterBar.innerHTML = cats.map(cat => `
+      <button class="filter-chip" role="tab" data-cat="${cat}" aria-pressed="${cat === active}">
+        ${cat}<span class="count">${countFor(cat)}</span>
+      </button>
+    `).join('');
+    filterBar.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        active = btn.dataset.cat;
+        renderFilters();
+        renderGrid();
+      });
+    });
+  }
+
+  function cardHTML(p){
+    const links = [
+      p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener">Repo →</a>` : '',
+      p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Live →</a>` : ''
+    ].filter(Boolean).join('');
+    return `
+      <article class="card">
+        <h3>${p.id}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="pill-row">
+          ${p.categories.map(c => `<span class="pill outline small">${c}</span>`).join('')}
+          ${p.tech.map(t => `<span class="pill small">${t}</span>`).join('')}
+        </div>
+        ${links ? `<div class="links">${links}</div>` : ''}
+      </article>
+    `;
+  }
+
+  function renderGrid(){
+    const list = active === "ALL" ? PROJECTS : PROJECTS.filter(p => p.categories.includes(active));
+    grid.innerHTML = list.length
+      ? list.map(cardHTML).join('')
+      : `<div class="empty-state">No projects logged under "${active}" yet.</div>`;
+  }
+
+  renderFilters();
+  renderGrid();
+
+  /* ============================================================
+     SECTION-SPY NAVIGATION — highlights the active nav link as
+     you scroll, keeps sidebar and mobile topnav in sync
+     ============================================================ */
+  const sections = ["skills", "experience", "projects", "education"]
+    .map(id => document.getElementById(id));
+  const navLinks = [
+    ...document.querySelectorAll('#sidenav a'),
+    ...document.querySelectorAll('#topnav a')
+  ];
+
+  function setActive(id){
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === id));
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+
+  sections.forEach(sec => sec && observer.observe(sec));
+  setActive('skills');
+})();
+</script>
+</body>
+</html>
