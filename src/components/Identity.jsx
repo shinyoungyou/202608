@@ -38,7 +38,7 @@ export default function Identity() {
         <div className="text-sm font-medium text-emerald-600 mt-0.5 mb-2">
           {certifications}
         </div>
-        <div className="contact flex flex-wrap items-center gap-y-1 max-w-[1012px]">
+        <div className="contact flex flex-wrap justify-center items-center gap-y-1 leading-none mx-auto max-w-[1012px]">
           <span>{location}</span>
           <span className="sep">|</span>
           <span>{phone}</span>

@@ -35,26 +35,51 @@ export const SKILLS = [
 
 export const EXPERIENCE = [
   {
-    title: "Security Operations (SOC) Analyst Co-op",
+    title: "SOC Analyst Co-op, Security Operations",
     company: "Vancity Credit Union",
-    period: "May 2025 — Dec 2025",
+    location: "Vancouver, BC",
+    link: "https://www.vancity.com",
+    link2: "https://www.vancity.com/privacy-security/report",
+    period: "May 2025 – Dec 2025",
     bullets: [
-      "Investigated and managed 1,050+ ServiceNow security tickets, independently resolving ~70% and escalating the remaining ~30%; contributed 19% of annual SOC ticket volume while maintaining a low average MTTR of ~2 hours.",
-      "Cut average API response time by 35% through query and caching improvements.",
+      "Investigated and managed 1,050+ ServiceNow security tickets, independently resolving ~70% and escalating the remaining ~30%; contributed 19% of annual SOC ticket volume while maintaining a low average MTTR of ~2 hours and adhering to NIST CSF principles.",
+      "Reviewed public-facing and internal application security findings during Salt Security vendor sessions using the OWASP Top 10 framework, including SQL injection and XSS.",
+      "Identified and validated gaps in phishing and data leak playbooks (e.g., PCI DSS), escalating findings to Incident Coordinators to improve incident response procedures and operational readiness.",
+      "Validated security threats and determined response actions using MITRE ATT&CK and CVSS, correlating logs across SOAR/EDR platforms including MS Defender, Entra ID, Darktrace, Arctic Wolf, and Proofpoint.",
+      "Mitigated a phishing campaign containing clipboard malware targeting senior management; escalated to senior analyst, blocked malicious domains, and presented findings to the team, contributing to a security awareness newsletter.",
+      "<strong>Collaborated with a team of 5 on a Threat-Hunting Automation Project (Jun–Jul 2025)</strong>: to improve manual workflows; synthesized proof-of-concept IoC/TTP collection and Splunk queries into a 9-page presentation for management.",
+      "Used Excel to convert security event timestamps from UTC to Pacific Time to support AUP investigations and enable actionable reporting to HR and management.",
     ],
-    tags: ["VB.NET / Python / C#", "ASP.NET", "Full-stack development", "Data wrangling", "MySQL"],
+    tags: ["SOC", "NIST CSF", "OWASP", "Splunk", "SOAR/EDR", "Threat Hunting"],
   },
   {
-    title: "Front-End Intern",
-    company: "Northline Systems",
-    period: "May 2022 — Aug 2022",
+    title: "Web Developer Intern",
+    company: "Cube Design and Communication",
+    location: "Markham, ON (Remote)",
+    link: "https://cubedesign.ca",
+    link2: "https://cubedesign.ca/contact",
+    period: "Feb 2023 – May 2023",
     bullets: [
-      "Shipped a component library adopted across four internal dashboards.",
-      "Partnered with design to translate Figma files into accessible React UI.",
+      "Redesigned a digital marketing customer's website using Vue.js and Firebase, integrating multilingual support and a contact form with the Elastic Email API, which boosted user engagement by 19%.",
+      "Demonstrated website contact form SMTP configurations during a team Agile meeting, reducing internal redesign project implementation time by 25%.",
     ],
-    tags: ["React", "TypeScript", "Figma"],
+    tags: ["Vue.js", "Firebase", "API Integration", "Agile"],
   },
-]
+  {
+    title: "IT Support Intern",
+    company: "Vancouver Fashion Week",
+    location: "Vancouver, BC",
+    link: "https://www.vanfashionweek.com",
+    link2:
+      "https://www.vanfashionweek.com/event-details/designer-registration-4/form",
+    period: "Jan 2023 – Feb 2023",
+    bullets: [
+      "Troubleshooted and resolved software issues with designer registration forms on a Wix website for FW 2023, facilitating 20+ successful designer showcases.",
+      "Collaborated with a team of 3 to develop dynamic pages using Wix databases, reducing static page maintenance by 75%.",
+    ],
+    tags: ["Wix", "Database Management", "IT Support"],
+  },
+];
 
 // A project can list more than one category (e.g. Project A below
 // spans both Application Security and Networking).

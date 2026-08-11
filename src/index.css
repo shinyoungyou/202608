@@ -199,6 +199,25 @@ section:last-child{ margin-bottom: 0; }
 .job .pill-row{ margin-left: 40px; }
 
 /* ============================================================
+   COMPANY LINK (with arrow)
+   ============================================================ */
+.company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 0px;
+  border-bottom: 1px solid var(--line); /* or var(--ink-dim) with opacity */
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.company-link:hover {
+  color: var(--terracotta);
+  border-color: var(--terracotta);
+}
+
+/* ============================================================
    PROJECTS — category filter + cards
    ============================================================ */
 .filter-row{ display:flex; flex-wrap:wrap; gap: 8px; margin-bottom: 24px; }
