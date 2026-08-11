@@ -51,43 +51,66 @@ export default function Projects() {
             </div>
           ) : (
             visible.map((p) => (
-              <article className="card" key={p.id}>
-                <h3>{p.id}</h3>
-                <p className="desc">{p.desc}</p>
-                <div className="pill-row">
-                  {p.categories.map((c) => (
-                    <span className="pill outline small" key={c}>
-                      {c}
-                    </span>
-                  ))}
-                  {p.tech.map((t) => (
-                    <span className="pill small" key={t}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                {(p.repo || p.demo) && (
-                  <div className="links">
-                    {p.repo && (
-                      <a
-                        href={p.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Repo →
-                      </a>
-                    )}
-                    {p.demo && (
-                      <a
-                        href={p.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Live →
-                      </a>
-                    )}
+              <article className="card overflow-hidden p-0" key={p.id}>
+                {/* Project Preview Image */}
+                {p.img && (
+                  <div className="w-full h-48 bg-gray-100 overflow-hidden border-b border-[var(--line)]">
+                    <img
+                      src={p.img}
+                      alt={`${p.id} preview`}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
                   </div>
                 )}
+
+                {/* Card Content Wrapper (restoring padding since card p-0 removed it) */}
+                <div className="p-5 flex flex-col flex-grow gap-3">
+                  <h3>{p.id}</h3>
+                  <p className="desc">{p.desc}</p>
+                  <div className="pill-row">
+                    {p.categories.map((c) => (
+                      <span className="pill outline small" key={c}>
+                        {c}
+                      </span>
+                    ))}
+                    {p.tech.map((t) => (
+                      <span className="pill small" key={t}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="links mt-auto pt-2 flex items-center justify-between">
+                    <div className="flex gap-4">
+                      {p.repo && (
+                        <a
+                          href={p.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Repo →
+                        </a>
+                      )}
+                      {p.demo && (
+                        <a
+                          href={p.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Live →
+                        </a>
+                      )}
+                    </div>
+
+                    {/* Link to detail page (ready for routing) */}
+                    <a
+                      href={`/projects/${p.slug}`}
+                      className="text-[var(--terracotta)] font-semibold hover:underline"
+                    >
+                      Details →
+                    </a>
+                  </div>
+                </div>
               </article>
             ))
           )}
