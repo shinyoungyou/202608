@@ -341,7 +341,7 @@ section:last-child{ margin-bottom: 0; }
 }
 .project-content-layer .desc {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 13.5kpx;
+  font-size: 13.5px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

@@ -54,7 +54,15 @@ export default function Projects() {
             </div>
           ) : (
             visible.map((p) => (
-              <article className="project-overlay-card" key={p.id}>
+              <article
+                className="project-overlay-card"
+                key={p.id}
+                onClick={() => {
+                  window.location.href = `${import.meta.env.BASE_URL}projects/${
+                    p.slug
+                  }`;
+                }}
+              >
                 {/* Background Image */}
                 {p.img && (
                   <img
@@ -85,7 +93,7 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* <div className="links mt-2 pt-2 flex items-center justify-between text-xs font-semibold">
+                  {/* <div className="links mt-2 pt-2 flex items-center justify-between text-xs font-semibold"  onClick={(e) => e.stopPropagation()}>
                     <div className="flex gap-4">
                       {p.repo && (
                         <a
