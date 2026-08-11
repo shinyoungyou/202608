@@ -25,7 +25,7 @@ export const NAV_ITEMS = [
   { id: "education", label: "Education" },
   { id: "certifications", label: "Certifications" },
   { id: "about", label: "About Me" },
-  { id: "skills", label: "Skills" },
+  // { id: "skills", label: "Skills" },
 ];
 
 export const SKILLS = [
@@ -95,23 +95,27 @@ export const EXPERIENCE = [
 
 export const CATEGORIES = [
   "Application Security",
-  "DevOps",
+  "Access Control",
   "Cloud",
+  "DevOps",
+  "Networking",
   "IoT",
   "Android/Mobile",
   "SaaS",
+  "Accessibility",
+  // "Legacy",
 ];
 
 export const PROJECTS = [
   {
     id: "SmartIEC",
     slug: "smartiec",
-    categories: ["IoT", "Cloud"],
+    categories: ["IoT", "DevOps"],
     desc: "Smart home reliability optimization project. Implemented 500ms input debouncing and integrated IoT sensors to automate HVAC actuators, contributing to a team of 5.",
-    tech: ["Flask", "Python", "JavaScript", "IoT"],
+    tech: ["GitHub Actions", "Flask", "Python", "JavaScript", "IoT"],
     img: "img/smartiec/after-dashboard.png",
-    repo: "kk",
-    demo: "kk",
+    repo: "https://github.com/khaiphan812/COMP3800-SmartIEC",
+    demo: "https://www.youtube.com/embed/2No5rb0r7HA?si=25UPfMiD0ES9PUuV",
     videos: [
       {
         title: "Sprint 1 Individual Demo Video: Frontend UI & Core Logic",
@@ -134,7 +138,7 @@ export const PROJECTS = [
   {
     id: "Wireshark Network Analysis",
     slug: "wireshark",
-    categories: ["Networking", "Application Security"],
+    categories: ["Networking"],
     desc: "Captured and analyzed live Wi-Fi traffic generated during a Google search using Wireshark to examine how web requests travel across Ethernet, IPv6, TCP, and TLS layers and how HTTPS protects client-server communication.",
     tech: ["Wireshark", "TCP/IP", "TLS", "HTTPS"],
     img: "img/wireshark/preview.png",
@@ -148,7 +152,7 @@ export const PROJECTS = [
     slug: "certimpl",
     categories: ["Application Security", "Networking"],
     desc: "Collection of network security tools including packet inspection via Wireshark and local HTTPS server implementations using OpenSSL/mkcert.",
-    tech: ["Wireshark", "Node.js", "OpenSSL", "TLS/HTTPS"],
+    tech: ["Node.js", "OpenSSL", "TLS/HTTPS"],
     img: "img/certimpl/secure.png",
     repo: null,
     demo: null,
@@ -158,23 +162,23 @@ export const PROJECTS = [
   {
     id: "TLS Certificate Chain Analysis",
     slug: "fortinet",
-    categories: ["Application Security", "Networking"],
+    categories: ["Networking"],
     desc: "Analyzed fortinet.com's TLS certificate chain using browser certificate viewer and OpenSSL, examining certificate hierarchy, RSA-2048 public key, SHA-256 signature algorithm, and revocation mechanisms to understand how TLS establishes trust and protects secure HTTPS communication.",
-    tech: ["OpenSSL", "TLS/HTTPS", "RSA", "SHA-256"],
+    tech: ["TLS/HTTPS", "RSA", "SHA-256", "OCSP", "CRL"],
     img: "img/fortinet/preview.png",
     repo: null,
     demo: null,
     pdf: "https://docs.google.com/presentation/d/e/2PACX-1vS4JKioqDGWl2pqfpjN8vHJCkB0XgLEiJ5DbbDPZjq3z4GPqg5WJtLFSmAyDavv3pjINAGVD2a8TJbu/pubembed?start=false&loop=true&delayms=3000",
-    images: ["img/fortinet/preview.png"],
+    // images: ["img/fortinet/preview.png"],
   },
   {
     id: "Password Manager",
     slug: "passwordmngr",
-    categories: ["Cloud", "Application Security"],
+    categories: ["Cloud", "Application Security", "DevOps", "Access Control"],
     desc: "Web app for secure password generation and health evaluation using the Have I Been Pwned API. Architected on AWS with Cognito, DynamoDB, and private VPC networking.",
-    tech: ["Node.js", "AWS", "DynamoDB", "Tailwind CSS"],
+    tech: ["AWS", "IAM", "Node.js", "API", "ALB", "VPC", "subnetting"],
     img: "img/passwordmngr/aws-complicated.png",
-    repo: null,
+    repo: "https://github.com/Hazel-Jeong-dev/COMP3962_PasswordManager",
     demo: null,
     pdf: `${
       import.meta.env.BASE_URL
@@ -188,9 +192,9 @@ export const PROJECTS = [
   {
     id: "Android CVE Lookup",
     slug: "cvelookup",
-    categories: ["Android/Mobile", "Application Security"],
+    categories: ["Application Security", "Android/Mobile"],
     desc: "A Flutter-based Android app that queries the NVD API to search and track CVEs by severity, enabling on-call engineers to triage vulnerabilities on the go.",
-    tech: ["Flutter", "Dart", "NVD API"],
+    tech: ["Flutter", "Dart", "NIST NVD API"],
     img: "img/cvelookup/preview.png",
     repo: null,
     demo: null,
@@ -211,12 +215,12 @@ export const PROJECTS = [
   {
     id: "Allergy Scanner",
     slug: "allergyscanner",
-    categories: ["IoT", "Android/Mobile"],
+    categories: ["Android/Mobile", "Accessibility"],
     desc: "Healthcare-focused mobile tool to scan food barcodes and identify potential allergens, improving food-tech accessibility.",
-    tech: ["Barcode API", "Mobile Dev"],
+    tech: ["Barcode API", "Mobile First"],
     img: "img/allergyscanner/preview.png",
-    repo: null,
-    demo: null,
+    repo: "https://github.com/shinyoungyou/2800-202510-DTC11",
+    demo: "https://two800-202510-dtc11.onrender.com/",
     images: [
       // "img/allergyscanner/scanning.png",
       "img/allergyscanner/scanning2.png",
@@ -230,32 +234,32 @@ export const PROJECTS = [
   {
     id: "Slouchii",
     slug: "slouchii",
-    categories: ["IoT", "SaaS", "Application Security"],
+    categories: ["IoT"],
     desc: "Full-stack web application integrated with Arduino hardware built at nwHacks 2025 within 24 hours to improve posture. Developed React UI with a posture monitoring timer and real-time data flow via InfluxDB and Node.js.",
     tech: ["React", "Node.js", "InfluxDB", "Arduino"],
-    img: "img/slouchii/Screenshot 2026-08-10 at 9.37.44 PM.png",
-    repo: null,
-    demo: null,
+    img: "img/slouchii/preview.png",
+    repo: "https://github.com/shinyoungyou/nwHacks2025",
+    demo: "https://devpost.com/software/slouchii",
   },
   {
     id: "Study Buddy",
     slug: "studybuddy",
     categories: ["SaaS"],
     desc: "Study tracking app designed to help students log study hours and manage their time effectively. Implemented a custom stopwatch using asynchronous logic and a dynamic calendar for statistics.",
-    tech: ["HTML/CSS", "JavaScript", "Firebase"],
+    tech: ["Bootstrap", "JavaScript", "Firebase", "HTML/CSS"],
     img: "img/studybuddy/Screenshot 2026-08-10 at 9.39.51 PM.png",
-    repo: null,
+    repo: "https://github.com/shinyoungyou/1800_202430_DTC13",
     demo: "https://comp1800-202430-personal.web.app/",
   },
 
   {
     id: "Language Exchange",
     slug: "langex",
-    categories: ["SaaS", "Cloud"],
+    categories: ["Cloud", "DevOps"],
     desc: "Web platform connecting language learners with partners. Implemented 16 RESTful APIs, Google Maps integration, and Azure-based CI/CD pipelines.",
-    tech: ["C#", "ASP.NET Core", "React", "Azure", "Docker"],
+    tech: ["Azure", "GitHub Actions", "C#", "ASP.NET Core", "React", "Docker"],
     img: "img/langex/Screenshot 2026-08-10 at 10.25.22 PM.png",
-    repo: null,
+    repo: "https://github.com/shinyoungyou/v2-language-exchange",
     demo: "https://language-exchange-app.azurewebsites.net/",
   },
   {
@@ -263,7 +267,7 @@ export const PROJECTS = [
     slug: "slackmsg",
     categories: ["SaaS"],
     desc: "Message archival system tracking real-time Slack updates. Implemented event-driven architecture using Slack Events API and MongoDB for permanent persistence.",
-    tech: ["TypeScript", "React", "Node.js", "MongoDB", "Slack API"],
+    tech: ["TypeScript", "React", "Node.js", "MongoDB", "Slack Event API"],
     img: "img/slackmsg/Screenshot 2026-08-10 at 10.26.01 PM.png",
     repo: "https://github.com/shinyoungyou/slack-backup-proj",
     demo: null,
@@ -272,85 +276,12 @@ export const PROJECTS = [
   {
     id: "Education Dashboard",
     slug: "edudash",
-    categories: ["SaaS"],
+    categories: ["Access Control"],
     desc: "Role-based system for admins, teachers, and students to manage courses and grades with full CRUD operations and secure RBAC.",
     tech: ["PHP", "MySQL", "RBAC"],
     img: "img/edudash/Screenshot 2026-08-10 at 10.26.24 PM.png",
     repo: null,
     demo: null,
-  },
-
-  // 1. Embedded PDF / Slides Example
-  {
-    id: "Cloud Security Architecture Presentation",
-    slug: "cloud-security-architecture",
-    categories: ["Cloud", "Application Security"],
-    desc: "Comprehensive management presentation and architecture diagram detailing AWS security controls and compliance frameworks.",
-    tech: ["AWS", "IAM", "NIST CSF"],
-    img: "img/cloud-arch.png",
-    repo: "https://github.com/your-username/cloud-security",
-    demo: null,
-    pdf: `${import.meta.env.BASE_URL}docs/dummy.pdf`, // Replace with your actual PDF path or link
-  },
-
-  // 2. Multi-Image Gallery Example (or multi-view screenshots)
-  {
-    id: "SmartEC",
-    slug: "smartiec",
-    categories: ["IoT", "Cloud"],
-    desc: "Smart home reliability optimization project integrating IoT sensors and automating HVAC actuators.",
-    tech: ["Python", "Flask", "IoT"],
-    img: "img/smartiec-main.png",
-    repo: "https://github.com/your-username/smartiec",
-    demo: "https://smartiec-demo.com",
-    // You can easily map extra images if you add an 'images' array property to your component!
-    images: [
-      "img/smartiec/before-dashboard.png",
-      "img/smartiec/after-dashboard.png",
-      "img/smartiec/before-survey.png",
-      "img/smartiec/after-survey.png",
-    ],
-  },
-
-  // 3. Versioned YouTube Videos (Sprint 1, Sprint 2, Sprint 3) Example
-  {
-    id: "Study uddy",
-    slug: "study-buddy",
-    categories: ["SaaS"],
-    desc: "Study tracking app designed to help students log study hours and manage their time effectively across multiple sprint iterations.",
-    tech: ["JavaScript", "Firebase", "HTML/CSS"],
-    img: "img/study-buddy.png",
-    repo: "https://github.com/your-username/study-buddy",
-    demo: "https://study-buddy-demo.web.app",
-    videos: [
-      {
-        title: "Sprint 1: Core Stopwatch & Timer Logic",
-        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      },
-      {
-        title: "Sprint 2: Dynamic Calendar & Data Storage",
-        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      },
-      {
-        title: "Sprint 3: Final UI Polish & Firebase Integration",
-        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      },
-    ],
-  },
-
-  // 4. Live Demo Site & Repository Focus Example
-  {
-    id: "Android CE Lookup",
-    slug: "android-cve-lookup",
-    categories: ["Application Security", "Mobile"],
-    desc: "A Flutter-based Android app that queries the NVD API to search and track vulnerabilities by severity for on-call engineers.",
-    tech: ["Flutter", "Dart", "NVD API"],
-    img: "img/cve-lookup.png",
-    repo: "https://github.com/your-username/android-cve-lookup",
-    demo: "https://play.google.com/store/apps/details?id=com.example.cve",
-    githubReadme:
-      "https://github.com/Caio-MN/COMP3800-SmartIEC/blob/main/README.md",
-    // githubReadme: "https://google.com/",
   },
 ];
 

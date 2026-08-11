@@ -100,7 +100,7 @@ export default function ProjectDetail() {
       {/* Media Showcase Section (Videos, Slides, or Images) */}
       <section className="space-y-8 mb-12">
         {/* Main Preview Image */}
-        {/* {project.img && (
+        {project.img && (
           <div className="rounded-2xl overflow-hidden border border-[var(--line)] shadow-md bg-white">
             <img
               src={`${import.meta.env.BASE_URL}${project.img}`}
@@ -108,7 +108,7 @@ export default function ProjectDetail() {
               className="w-full h-auto object-cover"
             />
           </div>
-        )} */}
+        )}
 
         {/* Embedded PDF / Presentation Support */}
         {project.pdf && (

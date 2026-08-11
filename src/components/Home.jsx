@@ -32,7 +32,7 @@ export default function Home() {
           <Education />
           <Certifications />
           <About />
-          <Skills />
+          {/* <Skills /> */}
         </main>
       </div>
 
