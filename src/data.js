@@ -5,7 +5,7 @@
 // ============================================================
 
 export const IDENTITY = {
-  name: "Shinyoung You",
+  name: "SHINYOUNG YOU",
   pronouns: "she/her",
   role: "Security Operations, Cloud Engineering & Application Security",
   certifications: "CompTIA Security+ & ISC2 CC Certified",

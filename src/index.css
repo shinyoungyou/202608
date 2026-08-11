@@ -247,7 +247,7 @@ section:last-child{ margin-bottom: 0; }
 .project-grid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 8px;
 }
 @media (max-width: 620px){ .project-grid{ grid-template-columns: 1fr; } }
 
@@ -276,6 +276,101 @@ section:last-child{ margin-bottom: 0; }
   text-align:center;
   color: var(--ink-dim);
   font-size: 13.5px;
+}
+
+/* ============================================================
+   PROJECT OVERLAY CARDS (Style 2)
+   ============================================================ */
+.project-overlay-card {
+  position: relative;
+  border-radius: 0px;
+  overflow: hidden;
+  background: var(--navy);
+  border: 1px solid var(--line);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.project-overlay-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(44,46,74,0.15);
+}
+.project-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.project-overlay-card:hover .project-bg-img {
+  transform: scale(1.03);
+}
+.project-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 42, 53, 0.1) 0%,
+    rgba(42, 42, 53, 0.75) 55%,
+    rgba(42, 42, 53, 0.95) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 42, 53, 0.01) 0%,   /* Even lighter at the top to let the image shine */
+    rgba(42, 42, 53, 0.40) 60%,   /* Lighter in the middle */
+    rgba(42, 42, 53, 0.95) 100%   /* Keeps the bottom dark enough for your text contrast */
+  );
+  z-index: 1;
+}
+.project-content-layer {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.project-content-layer h3 {
+  color: #fff;
+  font-size: 20px;
+}
+.project-content-layer .desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13.5kpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================================
+   HOVER DETAIL PROMPT ANIMATION
+   ============================================================ */
+.project-click-hint {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(4px);
+  transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease;
+  /* color: var(--terracotta); */
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.project-overlay-card:hover .project-click-hint {
+  max-height: 30px; /* Large enough to fit one line of text */
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 2px;
 }
 
 /* ============================================================

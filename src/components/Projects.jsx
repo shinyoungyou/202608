@@ -44,6 +44,9 @@ export default function Projects() {
           ))}
         </div>
 
+        <p className="text-xs font-semibold tracking-wider uppercase text-ink-dim/80 mb-3">
+          Click anywhere on any project preview to view details.
+        </p>
         <div className="project-grid">
           {visible.length === 0 ? (
             <div className="empty-state">
@@ -51,42 +54,45 @@ export default function Projects() {
             </div>
           ) : (
             visible.map((p) => (
-              <article className="card overflow-hidden p-0" key={p.id}>
-                {/* Project Preview Image */}
+              <article className="project-overlay-card" key={p.id}>
+                {/* Background Image */}
                 {p.img && (
-                  <div className="w-full h-48 bg-gray-100 overflow-hidden border-b border-[var(--line)]">
-                    <img
-                      src={p.img}
-                      alt={`${p.id} preview`}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
+                  <img
+                    src={p.img}
+                    alt={`${p.id} preview`}
+                    className="project-bg-img"
+                  />
                 )}
 
-                {/* Card Content Wrapper (restoring padding since card p-0 removed it) */}
-                <div className="p-5 flex flex-col flex-grow gap-3">
+                {/* Dark Gradient Overlay */}
+                <div className="project-gradient-overlay" />
+
+                {/* Content Container Overlaid on Image */}
+                <div className="project-content-layer">
                   <h3>{p.id}</h3>
-                  <p className="desc">{p.desc}</p>
-                  <div className="pill-row">
-                    {p.categories.map((c) => (
-                      <span className="pill outline small" key={c}>
-                        {c}
-                      </span>
-                    ))}
+                  {/* <p className="desc">{p.desc}</p> */}
+                  <p className="project-click-hint">Click to see detail</p>
+
+                  <div className="pill-row mt-1">
+                    {/* Display tech or categories as subtle white/translucent pills */}
                     {p.tech.map((t) => (
-                      <span className="pill small" key={t}>
+                      <span
+                        className="pill small bg-white/20 text-white border-0"
+                        key={t}
+                      >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <div className="links mt-auto pt-2 flex items-center justify-between">
+                  {/* <div className="links mt-2 pt-2 flex items-center justify-between text-xs font-semibold">
                     <div className="flex gap-4">
                       {p.repo && (
                         <a
                           href={p.repo}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="text-white hover:underline"
                         >
                           Repo →
                         </a>
@@ -96,20 +102,20 @@ export default function Projects() {
                           href={p.demo}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="text-white hover:underline"
                         >
                           Live →
                         </a>
                       )}
                     </div>
 
-                    {/* Link to detail page (ready for routing) */}
                     <a
-                      href={`/projects/${p.slug}`}
-                      className="text-[var(--terracotta)] font-semibold hover:underline"
+                      href={`${import.meta.env.BASE_URL}projects/${p.slug}`}
+                      className="text-[var(--terracotta)] bg-white/90 px-3 py-1 rounded-full hover:bg-white transition-colors"
                     >
                       Details →
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </article>
             ))
