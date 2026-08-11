@@ -103,6 +103,88 @@ export const CATEGORIES = [
 ];
 
 export const PROJECTS = [
+  // 1. Embedded PDF / Slides Example
+  {
+    id: "Cloud Security Architecture Presentation",
+    slug: "cloud-security-architecture",
+    categories: ["Cloud", "Application Security"],
+    desc: "Comprehensive management presentation and architecture diagram detailing AWS security controls and compliance frameworks.",
+    tech: ["AWS", "IAM", "NIST CSF"],
+    img: "img/cloud-arch.png",
+    repo: "https://github.com/your-username/cloud-security",
+    demo: null,
+    pdf: `${import.meta.env.BASE_URL}docs/dummy.pdf`, // Replace with your actual PDF path or link
+  },
+
+  // 2. Multi-Image Gallery Example (or multi-view screenshots)
+  {
+    id: "SmartEC",
+    slug: "smartiec",
+    categories: ["IoT", "Cloud"],
+    desc: "Smart home reliability optimization project integrating IoT sensors and automating HVAC actuators.",
+    tech: ["Python", "Flask", "IoT"],
+    img: "img/smartiec-main.png",
+    repo: "https://github.com/your-username/smartiec",
+    demo: "https://smartiec-demo.com",
+    // You can easily map extra images if you add an 'images' array property to your component!
+    images: [
+      "img/smartiec/before-dashboard.png",
+      "img/smartiec/after-dashboard.png",
+      "img/smartiec/before-survey.png",
+      "img/smartiec/after-survey.png",
+    ],
+  },
+
+  // 3. Versioned YouTube Videos (Sprint 1, Sprint 2, Sprint 3) Example
+  {
+    id: "Study uddy",
+    slug: "study-buddy",
+    categories: ["SaaS"],
+    desc: "Study tracking app designed to help students log study hours and manage their time effectively across multiple sprint iterations.",
+    tech: ["JavaScript", "Firebase", "HTML/CSS"],
+    img: "img/study-buddy.png",
+    repo: "https://github.com/your-username/study-buddy",
+    demo: "https://study-buddy-demo.web.app",
+    videos: [
+      {
+        title: "Sprint 1: Core Stopwatch & Timer Logic",
+        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      },
+      {
+        title: "Sprint 2: Dynamic Calendar & Data Storage",
+        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      },
+      {
+        title: "Sprint 3: Final UI Polish & Firebase Integration",
+        url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      },
+    ],
+  },
+
+  // 4. Live Demo Site & Repository Focus Example
+  {
+    id: "Android CE Lookup",
+    slug: "android-cve-lookup",
+    categories: ["Application Security", "Mobile"],
+    desc: "A Flutter-based Android app that queries the NVD API to search and track vulnerabilities by severity for on-call engineers.",
+    tech: ["Flutter", "Dart", "NVD API"],
+    img: "img/cve-lookup.png",
+    repo: "https://github.com/your-username/android-cve-lookup",
+    demo: "https://play.google.com/store/apps/details?id=com.example.cve",
+    githubReadme:
+      "https://github.com/Caio-MN/COMP3800-SmartIEC/blob/main/README.md",
+    // githubReadme: "https://google.com/",
+  },
+
+
+
+
+
+
+
+
+
+  
   {
     id: "SmartIEC",
     slug: "smartiec",
