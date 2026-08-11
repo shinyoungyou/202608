@@ -100,7 +100,7 @@ export default function ProjectDetail() {
       {/* Media Showcase Section (Videos, Slides, or Images) */}
       <section className="space-y-8 mb-12">
         {/* Main Preview Image */}
-        {project.img && (
+        {/* {project.img && (
           <div className="rounded-2xl overflow-hidden border border-[var(--line)] shadow-md bg-white">
             <img
               src={`${import.meta.env.BASE_URL}${project.img}`}
@@ -108,34 +108,9 @@ export default function ProjectDetail() {
               className="w-full h-auto object-cover"
             />
           </div>
-        )}
-
-        {/* Multi-Image Gallery (Handles arrays like SmartIEC before/after screenshots) */}
-        {project.images && project.images.length > 0 && (
-          <div className="bg-white p-6 rounded-2xl border border-[var(--line)] shadow-sm">
-            <h3 className="text-base font-bold mb-4 text-[var(--navy)]">
-              Project Gallery & Screenshots
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.images.map((imgSrc, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl overflow-hidden border border-[var(--line)] shadow-sm bg-[var(--surface)]"
-                >
-                  <img
-                    src={`${import.meta.env.BASE_URL}${imgSrc}`}
-                    alt={`${project.id} screenshot ${idx + 1}`}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        )} */}
 
         {/* Embedded PDF / Presentation Support */}
-
-        {/* Embedded PDF / Presentation Support (if project.pdf is provided in data) */}
         {project.pdf && (
           <div className="bg-white p-6 rounded-2xl border border-[var(--line)] shadow-sm">
             <div className="flex justify-between items-center mb-4">
@@ -188,6 +163,28 @@ export default function ProjectDetail() {
           </div>
         )}
 
+        {/* Multi-Image Gallery (Handles arrays like SmartIEC before/after screenshots) */}
+        {project.images && project.images.length > 0 && (
+          <div className="bg-white p-6 rounded-2xl border border-[var(--line)] shadow-sm">
+            <h3 className="text-base font-bold mb-4 text-[var(--navy)]">
+              Project Gallery & Screenshots
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {project.images.map((imgSrc, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl overflow-hidden border border-[var(--line)] shadow-sm bg-[var(--surface)]"
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}${imgSrc}`}
+                    alt={`${project.id} screenshot ${idx + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Footer Navigation */}
