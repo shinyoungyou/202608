@@ -7,8 +7,8 @@ export default function Experience() {
       <SectionHeading>Work Experience</SectionHeading>
       {/* Container with a left border acting as the timeline */}
       <div className="pt-4 relative border-l-2 border-gray-200 ml-2">
-        {EXPERIENCE.map((job, index) => (
-          <div key={job.title + job.company} className="mb-10 ml-6 relative">
+        {EXPERIENCE.map((job) => (
+          <div className="mb-10 ml-6 relative">
             {/* Timeline Dot */}
             <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full border-2 border-[var(--terracotta)] bg-white" />
 
@@ -18,7 +18,7 @@ export default function Experience() {
             </div>
 
             {/* Role & Company */}
-            <h3 className="text-lg font-bold text-ink">{job.title}</h3>
+            <h3 className="text-base font-bold text-ink">{job.title}</h3>
             <div className="text-sm font-medium text-ink-dim mb-4">
               <a
                 href={job.link}
@@ -28,7 +28,7 @@ export default function Experience() {
               >
                 {job.company}
               </a>
-              <span className="text-gray-400"> {job.location}</span>
+              <span className="text-gray-400 font-light"> {job.location}</span>
             </div>
 
             {/* Bullet Points */}
