@@ -398,6 +398,8 @@ export const CERTIFICATIONS = [
 
 export const ABOUT = {
   heading: "A Little Bit About Me..",
+  img: "img/me.png",
+  // img: "img/me3.PNG",
   paragraphs: [
     "Hello, it’s Shinyoung You. Thanks for visiting! On my website, you can check all my work in cybersecurity and secure web/mobile application development, which I’m really into and have been building over the past 3 years through school projects and independent initiatives.",
     "I have a software development educational background dating back to 2022. After completing my SOC Analyst Co-op at Vancity Credit Union in December 2025, I expanded my focus into networking and cybersecurity. As a result, I earned my CompTIA Security+ (July 2026) and ISC2 CC (December 2025) certifications. Currently, I am in my final semester of the Computer Systems Technology program (specialized in Cloud Computing) at BCIT.",
