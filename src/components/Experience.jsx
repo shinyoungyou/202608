@@ -53,8 +53,17 @@ export default function Experience() {
 
               {/* Short Summary / Context */}
               {job.summary && (
-                <p className="text-sm text-gray-600 mb-3 leading-relaxed">
-                  {job.summary}
+                <p className="text-sm text-gray-600 font-poppins mb-3 leading-relaxed">
+                  {job.summary.textBefore || job.summary}
+                  <a
+                    href={job.summary.linkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-terracotta transition-colors"
+                  >
+                    {job.summary.linkText}
+                  </a>
+                  {job.summary.textAfter}
                 </p>
               )}
 
@@ -62,13 +71,24 @@ export default function Experience() {
               <ul className="space-y-2 text-ink text-sm leading-relaxed">
                 {job.bullets.map((item, i) => {
                   // If the item is designated as a subtitle (e.g., all-caps, no bullet)
-                  if (item.isSubtitle) {
+                  if (typeof item === "object" && item.isSubtitle) {
                     return (
                       <li
                         key={i}
                         className="font-semibold text-xs tracking-wider uppercase text-gray-500 mt-4 mb-1 list-none"
                       >
-                        {item.text}
+                        {item.link ? (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-500 underline hover:text-terracotta transition-colors"
+                          >
+                            {item.text}
+                          </a>
+                        ) : (
+                          item.text
+                        )}
                       </li>
                     );
                   }
@@ -78,8 +98,9 @@ export default function Experience() {
                     <li
                       key={i}
                       className="list-disc list-outside ml-4 text-gray-700 pl-1"
-                      dangerouslySetInnerHTML={{ __html: item }}
-                    />
+                    >
+                      {item}
+                    </li>
                   );
                 })}
               </ul>

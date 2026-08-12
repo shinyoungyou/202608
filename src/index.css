@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
 /* ============================================================
    TOKENS — edit these to re-skin the whole page
    ============================================================ */
