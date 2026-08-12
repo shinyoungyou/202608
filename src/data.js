@@ -375,12 +375,24 @@ export const CERTIFICATIONS = [
   {
     name: "CompTIA Security+",
     issuer: "CompTIA",
-    status: "Certified",
+    img: "img/comptia_logo.jpeg",
+    issued: "Issued Jul 2026",
+    expires: "Expires Jul 2029",
+    credentialId: "COMP001022930277",
+    url: `${import.meta.env.BASE_URL}docs/CompTIA-Security.pdf`,
+    credlyUrl:
+      "https://www.credly.com/badges/085bcc5f-9e53-435a-83d2-f130fb4432c0/public_url",
   },
   {
-    name: "Certified in Cybersecurity (CC)",
+    name: "ISC2 CC Certified in Cybersecurity",
     issuer: "ISC2",
-    status: "Certified",
+    img: "img/isc2-logo.jpeg",
+    issued: "Issued Dec 2025",
+    expires: "Expires Dec 2028",
+    credentialId: "3106380",
+    url: `${import.meta.env.BASE_URL}docs/isc2cc.pdf`,
+    credlyUrl:
+      "https://www.credly.com/badges/0cf2ef6b-4072-402e-b9bf-79c602ec7d16/public_url",
   },
 ];
 
