@@ -78,6 +78,8 @@ export const EXPERIENCE = [
     link2:
       "https://www.vanfashionweek.com/event-details/designer-registration-4/form",
     period: "Jan 2023 – Feb 2023",
+    summary:
+      "A global fashion organization producing multi-day runway events. Provided hands-on IT support to streamline backend registration processes and enhance digital infrastructure.",
     bullets: [
       { isSubtitle: true, text: "Key Achievements" },
       "Troubleshooted and resolved software issues with designer registration forms on a Wix website for FW 2023, facilitating 20+ successful designer showcases.",
@@ -395,6 +397,7 @@ export const ABOUT = {
   paragraphs: [
     "Hello, it’s Shinyoung You. Thanks for visiting! On my website, you can check all my work in cybersecurity, networking, cloud engineering, and secure web/mobile application development, which I’m really into and have been building over the past 3 years through school projects and independent initiatives.",
     "I have a software development educational background dating back to 2022. After completing my SOC Analyst Co-op at Vancity Credit Union in December 2025, I expanded my focus into networking and cybersecurity. As a result, I earned my CompTIA Security+ (July 2026) and ISC2 CC (December 2025) certifications. Currently, I am in my final semester of the Computer Systems Technology program (specialized in Cloud Computing) at BCIT.",
+    "Hobby-wise, I’m a big fan of listening to house music while I work. Here is a playlist I really like: https://www.youtube.com/watch?v=xpvjPsme8_k",
   ],
   signoff: "Hope you find it interesting :)",
 };

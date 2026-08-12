@@ -51,6 +51,13 @@ export default function Experience() {
                 )}
               </div>
 
+              {/* Short Summary / Context */}
+              {job.summary && (
+                <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                  {job.summary}
+                </p>
+              )}
+
               {/* Bullets & Subtitles */}
               <ul className="space-y-2 text-ink text-sm leading-relaxed">
                 {job.bullets.map((item, i) => {
