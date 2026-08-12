@@ -1,55 +1,82 @@
-import { EXPERIENCE } from '../data.js'
+import { EXPERIENCE } from "../data.js";
 import SectionHeading from "./SectionHeading.jsx";
 
 export default function Experience() {
   return (
     <section id="experience">
       <SectionHeading>Work Experience</SectionHeading>
-      {/* Container with a left border acting as the timeline */}
-      <div className="pt-4 relative border-l-2 border-gray-200 ml-2">
-        {EXPERIENCE.map((job) => (
-          <div className="mb-10 ml-6 relative">
-            {/* Timeline Dot */}
-            <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full border-2 border-[var(--terracotta)] bg-white" />
-
-            {/* Date */}
-            <div className="text-sm font-semibold text-terracotta mb-1">
-              {job.period}
-            </div>
-
-            {/* Role & Company */}
-            <h3 className="text-base font-bold text-ink">{job.title}</h3>
-            <div className="text-sm font-medium text-ink-dim mb-4">
-              <a
-                href={job.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="company-link"
-              >
-                {job.company}
-              </a>
-              <span className="text-gray-400 font-light"> {job.location}</span>
-            </div>
-
-            {/* Bullet Points */}
-            <ul className="list-disc list-outside ml-4 space-y-2 text-ink text-sm leading-relaxed mb-4">
-              {job.bullets.map((bullet, i) => (
-                <li
-                  key={i}
-                  className="pl-1 text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: bullet }}
+      <div className="pt-4 space-y-8">
+        {EXPERIENCE.map((job, index) => (
+          <div key={index} className="flex gap-4">
+            {/* Company Logo */}
+            {job.logo && (
+              <div className="flex-shrink-0">
+                <img
+                  src={job.logo}
+                  alt={`${job.company} logo`}
+                  className="w-12 h-12 object-cover rounded-md border border-gray-100 shadow-sm"
                 />
-              ))}
-            </ul>
+              </div>
+            )}
 
-            {/* Tags */}
-            {/* <div className="flex flex-wrap gap-2">
-              {job.tags.map((tag) => (
-                <span key={tag} className="pill outline text-xs px-3 py-1">
-                  {tag}
+            {/* Main Content Area */}
+            <div className="flex-grow">
+              {/* Top Row: Title & Period */}
+              <div className="flex justify-between items-start">
+                <h3 className="text-base font-bold text-ink">{job.title}</h3>
+                <span className="text-sm font-medium text-ink-dim whitespace-nowrap ml-4">
+                  {job.period}
                 </span>
-              ))}
-            </div> */}
+              </div>
+
+              {/* Company & Location Info */}
+              <div className="text-sm font-medium text-ink-dim mb-3">
+                <a
+                  href={job.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="company-link hover:underline"
+                >
+                  {job.company}
+                </a>
+                <span className="text-gray-400 font-light">
+                  {" "}
+                  · {job.location}
+                </span>
+                {job.employmentType && (
+                  <span className="text-gray-400 font-light">
+                    {" "}
+                    · {job.employmentType}
+                  </span>
+                )}
+              </div>
+
+              {/* Bullets & Subtitles */}
+              <ul className="space-y-2 text-ink text-sm leading-relaxed">
+                {job.bullets.map((item, i) => {
+                  // If the item is designated as a subtitle (e.g., all-caps, no bullet)
+                  if (item.isSubtitle) {
+                    return (
+                      <li
+                        key={i}
+                        className="font-semibold text-xs tracking-wider uppercase text-gray-500 mt-4 mb-1 list-none"
+                      >
+                        {item.text}
+                      </li>
+                    );
+                  }
+
+                  // Standard Bullet Point
+                  return (
+                    <li
+                      key={i}
+                      className="list-disc list-outside ml-4 text-gray-700 pl-1"
+                      dangerouslySetInnerHTML={{ __html: item }}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
