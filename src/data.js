@@ -173,7 +173,7 @@ export const PROJECTS = [
       "img/smartiec/before-survey.png",
       "img/smartiec/after-survey.png",
     ],
-    pdf: "https://docs.google.com/presentation/d/e/2PACX-1vR8TpsVquli2xf1nhVvD4HLsR1FvftMS351BCnSRjE2Ws8t35Z5JYyNkPSu9XnKXR0nEzTa30Qp_L7n/pubembed?start=false&loop=true&delayms=3000",
+    pdf: `${import.meta.env.BASE_URL}docs/3800 presentation.pdf`,
   },
   {
     id: "Wireshark Network Analysis",
@@ -184,7 +184,9 @@ export const PROJECTS = [
     img: "img/wireshark/preview.png",
     repo: null,
     demo: null,
-    pdf: "https://docs.google.com/presentation/d/e/2PACX-1vRtU4JS3VhV-TJXJP_IwneYMSXCx5dDf-JY1tdrrK4HC8ym6O0n0eXb3u-8gKrkxYK33ED2Rwp15O4k/pubembed?start=false&loop=true&delayms=3000",
+    pdf: `${
+      import.meta.env.BASE_URL
+    }docs/Wireshark_ Network Traffic Analysis.pdf`,
     images: ["img/wireshark/preview.png"],
   },
   {
@@ -197,7 +199,9 @@ export const PROJECTS = [
     repo: null,
     demo: null,
     images: ["img/certimpl/unsecure.png", "img/certimpl/secure.png"],
-    pdf: "https://docs.google.com/presentation/d/e/2PACX-1vSme_Cx8yrgtP7Xmy20lH9FbFBw9fEu9GfvW3k1YtpyO1hMGEjOPW7Xodu2S6vnyBOl6BJEtV6OSp5L/pubembed?start=false&loop=true&delayms=3000",
+    pdf: `${
+      import.meta.env.BASE_URL
+    }docs/self-signed certificate with openssl.pdf`,
   },
   {
     id: "TLS Certificate Chain Analysis",
@@ -208,8 +212,7 @@ export const PROJECTS = [
     img: "img/fortinet/preview.png",
     repo: null,
     demo: null,
-    pdf: "https://docs.google.com/presentation/d/e/2PACX-1vS4JKioqDGWl2pqfpjN8vHJCkB0XgLEiJ5DbbDPZjq3z4GPqg5WJtLFSmAyDavv3pjINAGVD2a8TJbu/pubembed?start=false&loop=true&delayms=3000",
-    // images: ["img/fortinet/preview.png"],
+    pdf: `${import.meta.env.BASE_URL}docs/Certificate Analysis.pdf`, // images: ["img/fortinet/preview.png"],
   },
   {
     id: "Password Manager",
