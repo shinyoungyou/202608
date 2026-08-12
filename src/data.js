@@ -48,8 +48,12 @@ export const EXPERIENCE = [
       "Identified and validated gaps in phishing and data leak playbooks (e.g., PCI DSS), escalating findings to Incident Coordinators to improve incident response procedures and operational readiness.",
       "Validated security threats and determined response actions using MITRE ATT&CK and CVSS, correlating logs across SOAR/EDR platforms including MS Defender, Entra ID, Darktrace, Arctic Wolf, and Proofpoint.",
       "Mitigated a phishing campaign containing clipboard malware targeting senior management; escalated to senior analyst, blocked malicious domains, and presented findings to the team, contributing to a security awareness newsletter.",
-      "<strong>Collaborated with a team of 5 on a Threat-Hunting Automation Project (Jun–Jul 2025)</strong>: to improve manual workflows; synthesized proof-of-concept IoC/TTP collection and Splunk queries into a 9-page presentation for management.",
       "Used Excel to convert security event timestamps from UTC to Pacific Time to support AUP investigations and enable actionable reporting to HR and management.",
+      {
+        isSubtitle: true,
+        text: "Threat-Hunting Automation Project (Jun – Jul 2025)",
+      },
+      "Collaborated with a team of 5 to improve a manual threat hunting workflow; reviewed and synthesized teammates’ proof-of-concept on threat intelligence IoC/TTP collection and Splunk queries, then finalized a 9-page presentation to communicate the proposed workflow and findings.",
     ],
   },
   {
@@ -75,6 +79,7 @@ export const EXPERIENCE = [
       "https://www.vanfashionweek.com/event-details/designer-registration-4/form",
     period: "Jan 2023 – Feb 2023",
     bullets: [
+      { isSubtitle: true, text: "Key Achievements" },
       "Troubleshooted and resolved software issues with designer registration forms on a Wix website for FW 2023, facilitating 20+ successful designer showcases.",
       "Collaborated with a team of 3 to develop dynamic pages using Wix databases, reducing static page maintenance by 75%.",
     ],
