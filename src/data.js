@@ -235,7 +235,8 @@ export const PROJECTS = [
     id: "Slouchii",
     slug: "slouchii",
     categories: ["IoT"],
-    desc: "Full-stack web application integrated with Arduino hardware built at nwHacks 2025 within 24 hours to improve posture. Developed React UI with a posture monitoring timer and real-time data flow via InfluxDB and Node.js.",
+    // desc: "Full-stack web application integrated with Arduino hardware built at nwHacks 2025 within 24 hours to improve posture. Developed React UI with a posture monitoring timer and real-time data flow via InfluxDB and Node.js.",
+    desc: "Worked in a team of 4 during a 24-hour hackathon to create a full-stack web application integrated with Arduino hardware to help students monitor and improve posture, delivering a functional prototype.",
     tech: ["React", "Node.js", "InfluxDB", "Arduino"],
     img: "img/slouchii/preview.png",
     repo: "https://github.com/shinyoungyou/nwHacks2025",
@@ -245,7 +246,8 @@ export const PROJECTS = [
     id: "Study Buddy",
     slug: "studybuddy",
     categories: ["SaaS"],
-    desc: "Study tracking app designed to help students log study hours and manage their time effectively. Implemented a custom stopwatch using asynchronous logic and a dynamic calendar for statistics.",
+    // desc: "Study tracking app designed to help students log study hours and manage their time effectively. Implemented a custom stopwatch using asynchronous logic and a dynamic calendar for statistics.",
+    desc: "Through our team’s survey, many students struggle with time management, finding it difficult to balance their studies with other responsibilities. To address this, we decided to create a study tracking app to help students log study hours and manage their time effectively. Study buddy is a mobile-friendly web app that provides tools to record study time and personalized insights based on performance.",
     tech: ["Bootstrap", "JavaScript", "Firebase", "HTML/CSS"],
     img: "img/studybuddy/Screenshot 2026-08-10 at 9.39.51 PM.png",
     repo: "https://github.com/shinyoungyou/1800_202430_DTC13",
@@ -266,7 +268,8 @@ export const PROJECTS = [
     id: "Slack Message Archive",
     slug: "slackmsg",
     categories: ["SaaS"],
-    desc: "Message archival system tracking real-time Slack updates. Implemented event-driven architecture using Slack Events API and MongoDB for permanent persistence.",
+    // desc: "Message archival system tracking real-time Slack updates. Implemented event-driven architecture using Slack Events API and MongoDB for permanent persistence.",
+    desc: "My team used Slack to communicate. One day, I tried to find a message to troubleshoot an issue, but I couldn’t because we were on Slack’s Free Plan, which limits access to messages older than 90 days. This experience inspired me to create this app. Slack Message Archive is a web-based app that automatically stores messages and provides permanent access to them.",
     tech: ["TypeScript", "React", "Node.js", "MongoDB", "Slack Event API"],
     img: "img/slackmsg/Screenshot 2026-08-10 at 10.26.01 PM.png",
     repo: "https://github.com/shinyoungyou/slack-backup-proj",
@@ -287,14 +290,86 @@ export const PROJECTS = [
 
 export const EDUCATION = [
   {
-    name: "B.Sc. Computer Science",
-    meta: "University of British Columbia · 2019 — 2023",
+    institution: "British Columbia Institute of Technology",
+    img: "img/bcit_logo.jpeg",
+    degree: "Computer Systems Technology Diploma — Cloud Computing Option",
+    period: "Sep 2024 — Expected Dec 2026",
+    location: "Vancouver, BC",
+    cgpa: "CGPA: 92/100",
+    status: "Final Semester in Progress",
+    leader: true,
+    courses: [
+      "Cloud Computing Platforms (97/100)",
+      "Object-Oriented Programming 2 (94/100)",
+      "Intro to Data Communications (92/100)",
+      "Computer Organization/Architecture (99/100)",
+      "Relational Database Systems (91/100)",
+      "Web Development 2 (100/100)",
+      "Mobile Dev with Android Tech (97/100)",
+      "Algorithm Analysis and Design (92/100)",
+    ],
   },
   {
-    name: "AWS Certified Solutions Architect",
-    meta: "2023",
+    institution: "Tamwood Careers College",
+    img: "img/tamwood_careers_college_logo.jpeg",
+    degree: "Web Development Certificate",
+    period: "Aug 2022 — Jun 2023",
+    location: "Vancouver, BC",
+    cgpa: "CGPA: 97/100",
+    status: "Graduated with Distinction",
+    leader: false,
+    courses: [
+      "JavaScript for Web Developers 2 (97.81/100)",
+      "Introduction to Back-End Web Development: PHP (95.58/100)",
+      "Introduction to Content Management Systems with Wordpress (98.68/100)",
+      "Fundamentals of Front End Web Development and HTML (99/100)",
+      "Fundamentals of CSS, Preprocessors, Frameworks, & Version Control Systems (97/100)",
+    ],
   },
-]
+];
+
+export const LEADERSHIP_EXPERIENCE = [
+  {
+    organization: "BCIT Women in Computing (WiC)",
+    img: "img/bcit_women_in_computing_logo.jpeg",
+    totalDuration: "Mar 2025 - Present",
+    roles: [
+      {
+        title: "President",
+        period: "Sep 2025 – Present",
+        location: "",
+        details: [
+          {
+            text: "Hosted the 2026 Winter SAP Vancouver company tour & panel.",
+            linkText: "View Post →",
+            url: "https://www.instagram.com/p/DV_4VFTksmC/",
+          },
+          {
+            text: "Hosted the 2026 Winter Skybox Labs company tour & panel.",
+            linkText: "View Post →",
+            url: "https://www.instagram.com/p/DVhXDkzD5gw",
+          },
+          {
+            text: "Guided managing Gmail Inbox and Google Drive to new executives.",
+          },
+          { text: "Onboarded new executives to their responsibilities." },
+          { text: "Recruited 2026 winter executives." },
+          { text: "Hosted the 2026 Winter Meet and Greet.",
+            linkText: "View Post →",
+            url: "https://www.instagram.com/p/DUGin5Cj4MU",
+           },
+        ],
+      },
+      {
+        title: "VP Treasurer",
+        // subtitle: "(VP Treasurer)",
+        period: "Mar 2025 – Sep 2025",
+        // location: "Vancouver, British Columbia, Canada",
+        details: ["Hosted the 2025 Fall Meet and Greet."],
+      },
+    ],
+  },
+];
 
 export const CERTIFICATIONS = [
   {
