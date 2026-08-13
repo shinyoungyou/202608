@@ -167,6 +167,11 @@ export const PROJECTS = [
     contributions: [
       "Optimized Flask-based smart home reliability with a 500ms input debounce, bundling rapid user clicks into single calls while contributing to a team of 5 using Python and JavaScript, to integrate IoT sensors and automate HVAC actuators.",
       "Scaled GitHub Actions testing workflow by refactoring 12 unit and 19 integration Pytest cases, running in 0.24s, to align with DB schema updates and validate incoming telemetry JSON payloads for continuous SDLC quality.",
+      "Managed feature deployments through branch-based development, submitting multiple pull requests that successfully underwent peer code reviews and merging into the main branch.",
+      "Marked up and styled all Frontend UI sections based on new prototypes. As a result, all UI elements became interactive, responsive for mobile and desktop, and data looked consistent across sections.",
+      "Built features allowing users to toggle between zones for detailed info, manage system action and recommendation cards, and control physical hardware devices/actuators (fans, blinds with three status options, and AC modes).",
+      "Developed two backend endpoints to calculate clothing layer suggestions based on user feedback and populate thermal zones and recommendation sections with real data.",
+      "Added system_actions properties across both zones for frontend integration and implemented conditional logic to disable cool and heat modes when the mini-split is turned off.",
     ],
     img: "img/smartiec/after-dashboard.png",
     repo: "https://github.com/khaiphan812/COMP3800-SmartIEC",
