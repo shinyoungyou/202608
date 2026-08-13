@@ -28,6 +28,13 @@ export const NAV_ITEMS = [
   // { id: "skills", label: "Skills" },
 ];
 
+export const PROJECT_NAV_ITEMS = [
+  { id: "contributions", label: "Contributions" },
+  { id: "docs", label: "Docs & Slides" },
+  { id: "videos", label: "Video Demos" },
+  { id: "gallery", label: "Gallery" },
+];
+
 export const SKILLS = [
   "Python",
   ".NET",
@@ -151,11 +158,15 @@ export const PROJECTS = [
     id: "SmartIEC",
     slug: "smartiec",
     categories: ["IoT", "DevOps"],
-    desc: "Smart home reliability optimization project. Implemented 500ms input debouncing and integrated IoT sensors to automate HVAC actuators, contributing to a team of 5.",
+    desc: "Smart IEC is a smart indoor environment control system. It provides a Flask web app for viewing dashboards, collecting feedback, sending device commands, storing sensor data, and integrating with Home Assistant. For local development, the repo also includes a custom Dockerized Home Assistant instance with mock devices.",
     tech: ["GitHub Actions", "Flask", "Python", "JavaScript", "IoT"],
+    contributions: [
+      "Optimized Flask-based smart home reliability with a 500ms input debounce, bundling rapid user clicks into single calls while contributing to a team of 5 using Python and JavaScript, to integrate IoT sensors and automate HVAC actuators.",
+      "Scaled GitHub Actions testing workflow by refactoring 12 unit and 19 integration Pytest cases, running in 0.24s, to align with DB schema updates and validate incoming telemetry JSON payloads for continuous SDLC quality.",
+    ],
     img: "img/smartiec/after-dashboard.png",
     repo: "https://github.com/khaiphan812/COMP3800-SmartIEC",
-    demo: "https://www.youtube.com/embed/2No5rb0r7HA?si=25UPfMiD0ES9PUuV",
+    demo: "https://youtu.be/2No5rb0r7HA",
     videos: [
       {
         title: "Sprint 1 Individual Demo Video: Frontend UI & Core Logic",
