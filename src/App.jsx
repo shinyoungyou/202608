@@ -1,22 +1,22 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ReactGA from "react-ga4";
 import Home from "./components/Home.jsx";
 import ProjectDetail from "./components/ProjectDetail.jsx";
 
-// 1. Define the UTM Tracker Hook
+// Initialize Google Analytics with your Measurement ID
+// (Replace 'G-XXXXXXXXXX' with your actual Measurement ID from GA4)
+ReactGA.initialize("G-EHY3CQ6MYM");
+
+// 1. Define the tracker hook (now focused on analytics logging if needed)
 function useUtmTracker() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const utmSource = params.get("utm_source");
-    const utmMedium = params.get("utm_medium");
-    const utmCampaign = params.get("utm_campaign");
 
     if (utmSource) {
-      localStorage.setItem("visitor_source", utmSource);
-      if (utmMedium) localStorage.setItem("visitor_medium", utmMedium);
-      if (utmCampaign) localStorage.setItem("visitor_campaign", utmCampaign);
-
       console.log(`Visitor arrived from source: ${utmSource}`);
+      // GA4 automatically captures UTM parameters out-of-the-box when a user lands on the page.
     }
   }, []);
 }
