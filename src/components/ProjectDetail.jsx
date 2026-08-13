@@ -4,13 +4,9 @@ import { useScrollSpy } from "../hooks/useScrollSpy.js";
 import { ProjectTopNav, ProjectSideNav } from "./ProjectNav.jsx";
 import ProjectGallery from "./ProjectGallery.jsx";
 
-const SECTION_IDS = PROJECT_NAV_ITEMS.map((item) => item.id);
-
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = PROJECTS.find((p) => p.slug === slug);
-  const activeId = useScrollSpy(SECTION_IDS);
-
 
   if (!project) {
     return (
@@ -29,14 +25,49 @@ export default function ProjectDetail() {
     );
   }
 
+  // --- LOGIC FOR CONDITIONAL NAVIGATION ---
+
+  // 1. Determine which sections exist for THIS specific project
+  const hasSections = {
+    contributions: !!project.contributions && project.contributions.length > 0,
+    docs: !!project.pdf, // Assuming presence of pdf means doc section exists
+    videos: !!project.videos && project.videos.length > 0,
+    gallery: !!project.images && project.images.length > 0,
+  };
+
+  // 2. Filter the master NAV_ITEMS to only include ones that exist
+  const filteredNavItems = PROJECT_NAV_ITEMS.filter((item) => {
+    // Map nav item IDs to hasSections keys
+    if (item.id === "contributions") return hasSections.contributions;
+    if (item.id === "docs") return hasSections.docs;
+    if (item.id === "videos") return hasSections.videos;
+    if (item.id === "gallery") return hasSections.gallery;
+    return false;
+  });
+
+  // Extract IDs for ScrollSpy
+  const availableSectionIds = filteredNavItems.map((item) => item.id);
+
+  // Initialize ScrollSpy with ONLY available sections
+  const activeId = useScrollSpy(availableSectionIds);
+
+  // Determine if we should show the nav (only show if more than 0 section)
+  const showNav = availableSectionIds.length > 0;
+
+  // --- END LOGIC ---
+
   return (
     <div className="layout max-w-4xl mx-auto px-4 py-12">
-      {/* Side Navigation for Projects */}
-      <ProjectTopNav activeId={activeId} />
-      <ProjectSideNav activeId={activeId} />
+      {/* Conditionally render Navigations */}
+      {showNav && (
+        <>
+          <ProjectTopNav activeId={activeId} navItems={filteredNavItems} />
+          <ProjectSideNav activeId={activeId} navItems={filteredNavItems} />
+        </>
+      )}
 
       <main>
-        {/* Top Navigation */}
+        {/* Top Navigation (Back button) */}
         <div className="mb-8">
           <Link
             to="/"
@@ -45,8 +76,10 @@ export default function ProjectDetail() {
             ← Back to Projects
           </Link>
         </div>
+
         {/* Header Info */}
         <header className="mb-8">
+          {/* ... existing header content ... */}
           <div className="flex flex-wrap gap-2 mb-3">
             {project.categories?.map((cat) => (
               <span
@@ -58,7 +91,6 @@ export default function ProjectDetail() {
             ))}
           </div>
 
-          {/* Format: Title | Context Date */}
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--navy)]">
             {project.id}
           </h1>
@@ -76,7 +108,6 @@ export default function ProjectDetail() {
             {project.desc}
           </p>
 
-          {/* Action Links (Repo / Demo) */}
           {(project.repo || project.demo) && (
             <div className="flex flex-wrap gap-3 items-center text-sm">
               {project.repo && (
@@ -118,17 +149,17 @@ export default function ProjectDetail() {
           )}
 
           {project.repoStatus === "private" && (
-            <span className="text-xs text-gray-500 ">
+            <div className="text-xs text-gray-500 mt-1">
               Repo is currently <i>private</i> due to NDA and/or team project
               restrictions
-            </span>
+            </div>
           )}
         </header>
 
         {/* Tech Stack Pills */}
         {project.tech && project.tech.length > 0 && (
-          <section>
-            <h3 className="text-lg font-bold  tracking-wider text-ink-dim border-b border-[var(--line)] pb-2">
+          <section className="mb-10">
+            <h3 className="text-lg font-bold tracking-wider text-ink-dim border-b border-[var(--line)] pb-2">
               Technologies Used
             </h3>
             <div className="flex flex-wrap gap-2 pt-2">
@@ -142,9 +173,9 @@ export default function ProjectDetail() {
           </section>
         )}
 
-        {/* Contribution Section */}
-        {project.contributions && (
-          <section id="contributions">
+        {/* Contribution Section (Id added) */}
+        {hasSections.contributions && (
+          <section id="contributions" className="mb-10 scroll-mt-20">
             <h3 className="text-lg font-bold text-[var(--navy)] mb-4 border-b border-[var(--line)] pb-2">
               What I contributed to the project
             </h3>
@@ -162,7 +193,7 @@ export default function ProjectDetail() {
           </section>
         )}
 
-        {/* Media Showcase Section (Videos, Slides, or Images) */}
+        {/* Media Showcase Section */}
         <section className="space-y-20">
           {/* Main Preview Image */}
           {project.img && (
@@ -175,9 +206,9 @@ export default function ProjectDetail() {
             </div>
           )}
 
-          {/* Embedded PDF / Presentation Support */}
-          {project.pdf && (
-            <div id="docs" className="bg-white">
+          {/* Embedded PDF / Docs (Id added) */}
+          {hasSections.docs && (
+            <div id="docs" className="bg-white scroll-mt-20">
               <div className="flex justify-between items-center mb-4 border-b border-[var(--line)] pb-2">
                 <h3 className="text-lg font-bold text-[var(--navy)]">
                   Project Documentation & Slides
@@ -192,7 +223,6 @@ export default function ProjectDetail() {
                 </a>
               </div>
 
-              {/* Clarification Note */}
               {project.team && (
                 <p className="text-xs text-gray-500 italic mb-4">
                   Note: This documentation reflects the collective team effort.
@@ -207,7 +237,7 @@ export default function ProjectDetail() {
                 </p>
               )}
 
-              <div className="w-full h-[500px]  overflow-hidden border border-[var(--line)] bg-[var(--surface)]">
+              <div className="w-full h-[500px] overflow-hidden border border-[var(--line)] bg-[var(--surface)]">
                 <iframe
                   src={project.pdf}
                   title={`${project.id} Document`}
@@ -217,9 +247,9 @@ export default function ProjectDetail() {
             </div>
           )}
 
-          {/* Sprint / Versioned YouTube Videos Support (if project.videos is provided in data) */}
-          {project.videos && project.videos.length > 0 && (
-            <div id="videos" className="bg-white ">
+          {/* Video Demos (Id added) */}
+          {hasSections.videos && (
+            <div id="videos" className="bg-white scroll-mt-20">
               <h3 className="text-lg font-bold mb-4 text-[var(--navy)] border-b border-[var(--line)] pb-2">
                 Development Sprints & Video Demos
               </h3>
@@ -229,7 +259,7 @@ export default function ProjectDetail() {
                     <h4 className="text-sm font-semibold text-[var(--terracotta)]">
                       {vid.title}
                     </h4>
-                    <div className="relative w-full aspect-video  overflow-hidden bg-black">
+                    <div className="relative w-full aspect-video overflow-hidden bg-black">
                       <iframe
                         src={vid.url}
                         title={vid.title}
@@ -244,11 +274,14 @@ export default function ProjectDetail() {
             </div>
           )}
 
-          {/* Multi-Image Gallery (Handles arrays like SmartIEC before/after screenshots) */}
-          <ProjectGallery images={project.images} projectName={project.id} />
+          {/* Gallery (Id is inside component) */}
+          {hasSections.gallery && (
+            <ProjectGallery images={project.images} projectName={project.id} />
+          )}
         </section>
+
         {/* Footer Navigation */}
-        <div className="border-t border-[var(--line)] pt-6 flex justify-between items-center">
+        <div className="border-t border-[var(--line)] pt-16 mt-20 flex justify-between items-center">
           <Link
             to="/"
             className="text-sm font-semibold text-[var(--navy)] hover:text-[var(--terracotta)]"

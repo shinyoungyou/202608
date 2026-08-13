@@ -1,10 +1,10 @@
 // components/ProjectNav.jsx
-import { PROJECT_NAV_ITEMS } from "../data.js";
 
-function ProjectNavLinks({ activeId }) {
+// Accept navItems as a prop
+function ProjectNavLinks({ activeId, navItems }) {
   return (
     <>
-      {PROJECT_NAV_ITEMS.map((item) => (
+      {navItems.map((item) => (
         <a
           key={item.id}
           href={`#${item.id}`}
@@ -17,18 +17,18 @@ function ProjectNavLinks({ activeId }) {
   );
 }
 
-export function ProjectSideNav({ activeId }) {
+export function ProjectSideNav({ activeId, navItems }) {
   return (
     <nav className="sidenav" aria-label="Project section navigation">
-      <ProjectNavLinks activeId={activeId} />
+      <ProjectNavLinks activeId={activeId} navItems={navItems} />
     </nav>
   );
 }
 
-export function ProjectTopNav({ activeId }) {
+export function ProjectTopNav({ activeId, navItems }) {
   return (
     <nav className="topnav" aria-label="Project section navigation">
-      <ProjectNavLinks activeId={activeId} />
+      <ProjectNavLinks activeId={activeId} navItems={navItems} />
     </nav>
   );
 }
