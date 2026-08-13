@@ -26,7 +26,7 @@ export default function App() {
   useUtmTracker();
 
   return (
-    <BrowserRouter basename="/portfolio-202608/">
+    <BrowserRouter basename="/202608/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
