@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { PROJECTS, PROJECT_NAV_ITEMS } from "../data.js";
 import { useScrollSpy } from "../hooks/useScrollSpy.js";
-import { ProjectTopNav, ProjectSideNav } from "./ProjectNav.jsx"; // Assuming you created this file
+import { ProjectTopNav, ProjectSideNav } from "./ProjectNav.jsx";
+import ProjectGallery from "./ProjectGallery.jsx";
 
 const SECTION_IDS = PROJECT_NAV_ITEMS.map((item) => item.id);
 
@@ -192,17 +193,19 @@ export default function ProjectDetail() {
               </div>
 
               {/* Clarification Note */}
-             {project.team && <p className="text-xs text-gray-500 italic mb-4">
-                Note: This documentation reflects the collective team effort.
-                Please see{" "}
-                <a
-                  href="#contributions"
-                  className="text-[var(--terracotta)] underline"
-                >
-                  What I contributed to the project
-                </a>{" "}
-                above for my specific ownership and tasks.
-              </p>}
+              {project.team && (
+                <p className="text-xs text-gray-500 italic mb-4">
+                  Note: This documentation reflects the collective team effort.
+                  Please see{" "}
+                  <a
+                    href="#contributions"
+                    className="text-[var(--terracotta)] underline"
+                  >
+                    What I contributed to the project
+                  </a>{" "}
+                  above for my specific ownership and tasks.
+                </p>
+              )}
 
               <div className="w-full h-[500px]  overflow-hidden border border-[var(--line)] bg-[var(--surface)]">
                 <iframe
@@ -242,27 +245,7 @@ export default function ProjectDetail() {
           )}
 
           {/* Multi-Image Gallery (Handles arrays like SmartIEC before/after screenshots) */}
-          {project.images && project.images.length > 0 && (
-            <div id="gallery" className="bg-white">
-              <h3 className="text-lg font-bold mb-4 text-[var(--navy)] border-b border-[var(--line)] pb-2">
-                Project Gallery & Screenshots
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                {project.images.map((imgSrc, idx) => (
-                  <div
-                    key={idx}
-                    className=" overflow-hidden border border-[var(--line)] shadow-sm bg-[var(--surface)]"
-                  >
-                    <img
-                      src={`${import.meta.env.BASE_URL}${imgSrc}`}
-                      alt={`${project.id} screenshot ${idx + 1}`}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          <ProjectGallery images={project.images} projectName={project.id} />
         </section>
         {/* Footer Navigation */}
         <div className="border-t border-[var(--line)] pt-6 flex justify-between items-center">
