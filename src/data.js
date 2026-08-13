@@ -156,7 +156,11 @@ export const CATEGORIES = [
 export const PROJECTS = [
   {
     id: "SmartIEC",
+    team: true,
     slug: "smartiec",
+    context:
+      "Team Project for Client — BCIT Building Science Graduate Faculty & Student",
+    period: "May 2026",
     categories: ["IoT", "DevOps"],
     desc: "Smart IEC is a smart indoor environment control system. It provides a Flask web app for viewing dashboards, collecting feedback, sending device commands, storing sensor data, and integrating with Home Assistant. For local development, the repo also includes a custom Dockerized Home Assistant instance with mock devices.",
     tech: ["GitHub Actions", "Flask", "Python", "JavaScript", "IoT"],
@@ -190,6 +194,8 @@ export const PROJECTS = [
   {
     id: "Wireshark Network Analysis",
     slug: "wireshark",
+    context: "Solo Presentation at KOTRA Vancouver Mentoring Program",
+    period: "May 2026",
     categories: ["Networking"],
     desc: "Captured and analyzed live Wi-Fi traffic generated during a Google search using Wireshark to examine how web requests travel across Ethernet, IPv6, TCP, and TLS layers and how HTTPS protects client-server communication.",
     tech: ["Wireshark", "TCP/IP", "TLS", "HTTPS"],
@@ -208,6 +214,8 @@ export const PROJECTS = [
   {
     id: "Certification Implementation",
     slug: "certimpl",
+    context: "Solo Presentation at KOTRA Vancouver Mentoring Program",
+    period: "Apr 2026",
     categories: ["Application Security", "Networking"],
     desc: "Built a local HTTPS server using Node.js and OpenSSL, then troubleshot browser certificate validation failures by creating a trusted local CA with mkcert and configuring SANs to establish certificate trust.",
     tech: ["Node.js", "OpenSSL", "TLS/HTTPS"],
@@ -226,6 +234,8 @@ export const PROJECTS = [
   {
     id: "TLS Certificate Chain Analysis",
     slug: "fortinet",
+    context: "Solo Presentation at KOTRA Vancouver Mentoring Program",
+    period: "Apr 2026",
     categories: ["Networking"],
     desc: "Analyzed fortinet.com's TLS certificate chain using browser certificate viewer and OpenSSL, examining certificate hierarchy, RSA-2048 public key, SHA-256 signature algorithm, and revocation mechanisms to understand how TLS establishes trust and protects secure HTTPS communication.",
     tech: ["TLS/HTTPS", "RSA", "SHA-256", "OCSP", "CRL"],
@@ -240,7 +250,10 @@ export const PROJECTS = [
   },
   {
     id: "Password Manager",
+    team: true,
     slug: "passwordmngr",
+    context: "Team Project in BCIT Cloud Computing course",
+    period: "Mar – Apr 2026",
     categories: ["Cloud", "Application Security", "DevOps", "Access Control"],
     desc: "Web app for secure password generation and health evaluation using the Have I Been Pwned API. Architected on AWS with Cognito, DynamoDB, and private VPC networking.",
     tech: ["AWS", "IAM", "Node.js", "API", "ALB", "VPC", "subnetting"],
@@ -264,6 +277,8 @@ export const PROJECTS = [
   {
     id: "Android CVE Lookup",
     slug: "cvelookup",
+    context: "Solo Project in BCIT Mobile Dev with Android Tech course",
+    period: "Mar 2026",
     categories: ["Application Security", "Android/Mobile"],
     desc: "A Flutter-based Android app that queries the NVD API to search and track CVEs by severity, enabling on-call engineers to triage vulnerabilities on the go.",
     tech: ["Flutter", "Dart", "NIST NVD API"],
@@ -289,12 +304,15 @@ export const PROJECTS = [
   },
   {
     id: "Allergy Scanner",
+    team: true,
     slug: "allergyscanner",
+    context: "Team Project in BCIT Projects 2 course",
+    period: "Apr – May 2025",
     categories: ["Android/Mobile", "Accessibility"],
     desc: "Healthcare-focused mobile tool to scan food barcodes and identify potential allergens, improving food-tech accessibility.",
     tech: ["Barcode API", "Mobile First"],
     contributions: [
-      "Team Lead in the team of 5 project",
+      "Team Lead in the team of 5",
       "Developed an mobile-first web app to scan food's barcode to get to know potential allergic ingridients",
     ],
     img: "img/allergyscanner/preview.png",
@@ -313,10 +331,13 @@ export const PROJECTS = [
   },
   {
     id: "Slouchii",
+    team: true,
     slug: "slouchii",
+    context: "Team Project at nwHacks hosted by UBC",
+    period: "Jan 2025",
     categories: ["IoT"],
     // desc: "Full-stack web application integrated with Arduino hardware built at nwHacks 2025 within 24 hours to improve posture. Developed React UI with a posture monitoring timer and real-time data flow via InfluxDB and Node.js.",
-    desc: "Worked in a team of 4 during a 24-hour hackathon to create a full-stack web application integrated with Arduino hardware to help students monitor and improve posture, delivering a functional prototype.",
+    desc: "A full-stack web app integrated with Arduino hardware to help students monitor and improve posture.",
     tech: ["React", "Node.js", "InfluxDB", "Arduino"],
     contributions: [
       "Frontend Developer",
@@ -330,7 +351,10 @@ export const PROJECTS = [
   },
   {
     id: "Study Buddy",
+    team: true,
     slug: "studybuddy",
+    context: "Team Project in BCIT Projects 1 course",
+    period: "Sep – Dec 2024",
     categories: ["SaaS"],
     // desc: "Study tracking app designed to help students log study hours and manage their time effectively. Implemented a custom stopwatch using asynchronous logic and a dynamic calendar for statistics.",
     desc: "Through our team’s survey, many students struggle with time management, finding it difficult to balance their studies with other responsibilities. To address this, we decided to create a study tracking app to help students log study hours and manage their time effectively. Study buddy is a mobile-friendly web app that provides tools to record study time and personalized insights based on performance.",
@@ -343,6 +367,7 @@ export const PROJECTS = [
       "Led the team as Project Manager by assigning tasks and mentoring team members in JavaScript and Firebase.",
     ],
     img: "img/studybuddy/Screenshot 2026-08-10 at 9.39.51 PM.png",
+    pdf: `${import.meta.env.BASE_URL}docs/DTC_13.pdf`,
     repo: "https://github.com/shinyoungyou/1800_202430_DTC13",
     demo: "https://comp1800-202430-personal.web.app/",
   },
@@ -350,6 +375,8 @@ export const PROJECTS = [
   {
     id: "Language Exchange",
     slug: "langex",
+    context: "Personal Project",
+    period: "Jun – Jul 2024",
     categories: ["Cloud", "DevOps"],
     desc: "Web platform connecting language learners with partners. Implemented 16 RESTful APIs, Google Maps integration, and Azure-based CI/CD pipelines.",
     tech: ["Azure", "GitHub Actions", "C#", "ASP.NET Core", "React", "Docker"],
@@ -360,6 +387,7 @@ export const PROJECTS = [
       "Developed a translation feature within the real-time SignalR chat environment using a Translation API to auto-detect and convert messages from the sender's language to the user's native language. ",
       "Facilitated efficient partner discovery with search features such as username, last activity, and location along with utilizing the Google Maps API and Geocoding API to enable finding nearby partners based on users' current locations. ",
       "Incorporated infinite scrolling and caching to Azure cache for Redis to enhance user experience as well as facilitated user profile picture cropping and storage in Azure Blob Storage.",
+      "Deployed the application using Github Actions, Azure App Service, and migrated MS SQL database running on Docker to Azure SQL Service.",
     ],
     img: "img/langex/Screenshot 2026-08-10 at 10.25.22 PM.png",
     repo: "https://github.com/shinyoungyou/v2-language-exchange",
@@ -369,6 +397,8 @@ export const PROJECTS = [
   {
     id: "Slack Message Archive",
     slug: "slackmsg",
+    context: "Personal Project",
+    period: "Aug – Sep 2023",
     categories: ["SaaS"],
     // desc: "Message archival system tracking real-time Slack updates. Implemented event-driven architecture using Slack Events API and MongoDB for permanent persistence.",
     desc: "My team used Slack to communicate. One day, I tried to find a message to troubleshoot an issue, but I couldn’t because we were on Slack’s Free Plan, which limits access to messages older than 90 days. This experience inspired me to create this app. Slack Message Archive is a web-based app that automatically stores messages and provides permanent access to them.",
@@ -386,7 +416,10 @@ export const PROJECTS = [
 
   {
     id: "Education Dashboard",
+    team: true,
     slug: "edudash",
+    context: "Team Project at Tamwood Careers College",
+    period: "Dec 2022 – Jan 2023",
     categories: ["Access Control"],
     desc: "Role-based system for admins, teachers, and students to manage courses and grades with full CRUD operations and secure RBAC.",
     tech: ["PHP", "MySQL", "RBAC"],

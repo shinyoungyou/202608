@@ -57,9 +57,19 @@ export default function ProjectDetail() {
             ))}
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--navy)]">
+          {/* Format: Title | Context Date */}
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[var(--navy)]">
             {project.id}
           </h1>
+
+          <div className="flex flex-wrap items-baseline gap-2 mb-4 mt-1">
+            <span className="text-base text-ink-dim font-medium">
+              {project.context}
+            </span>
+            <span className="text-sm text-gray-400 font-medium ml-auto">
+              {project.period}
+            </span>
+          </div>
 
           <p className="text-lg text-ink-dim leading-relaxed mb-4">
             {project.desc}
@@ -180,6 +190,20 @@ export default function ProjectDetail() {
                   Open PDF in New Tab →
                 </a>
               </div>
+
+              {/* Clarification Note */}
+             {project.team && <p className="text-xs text-gray-500 italic mb-4">
+                Note: This documentation reflects the collective team effort.
+                Please see{" "}
+                <a
+                  href="#contributions"
+                  className="text-[var(--terracotta)] underline"
+                >
+                  What I contributed to the project
+                </a>{" "}
+                above for my specific ownership and tasks.
+              </p>}
+
               <div className="w-full h-[500px]  overflow-hidden border border-[var(--line)] bg-[var(--surface)]">
                 <iframe
                   src={project.pdf}
