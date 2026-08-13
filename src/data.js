@@ -383,7 +383,6 @@ export const PROJECTS = [
     techs:
       "C#, ASP.NET Core, TypeScript, React, Mobx, MSSQL, Docker, Github Actions, Azure",
     contributions: [
-      "Personal Project",
       "Developed a translation feature within the real-time SignalR chat environment using a Translation API to auto-detect and convert messages from the sender's language to the user's native language. ",
       "Facilitated efficient partner discovery with search features such as username, last activity, and location along with utilizing the Google Maps API and Geocoding API to enable finding nearby partners based on users' current locations. ",
       "Incorporated infinite scrolling and caching to Azure cache for Redis to enhance user experience as well as facilitated user profile picture cropping and storage in Azure Blob Storage.",
@@ -404,7 +403,6 @@ export const PROJECTS = [
     desc: "My team used Slack to communicate. One day, I tried to find a message to troubleshoot an issue, but I couldn’t because we were on Slack’s Free Plan, which limits access to messages older than 90 days. This experience inspired me to create this app. Slack Message Archive is a web-based app that automatically stores messages and provides permanent access to them.",
     tech: ["TypeScript", "React", "Node.js", "MongoDB", "Slack Event API"],
     contributions: [
-      "Personal Project",
       "Developed a web application to store Slack messages and provide permanent access, implementing frontend with TypeScript, React, Redux, and MUI, and backend with Node.js, Express.js, and MongoDB.",
       "Managed real-time updates for new, edited, and deleted original messages using Slack Events API and ngrok.",
     ],
@@ -550,7 +548,7 @@ export const ABOUT = {
   paragraphs: [
     "Hello, it’s Shinyoung You. Thanks for visiting! On my website, you can check all my work in cybersecurity, networking, cloud engineering, and secure web/mobile application development, which I’m really into and have been building over the past 3 years through school projects and independent initiatives.",
     "I have a software development educational background dating back to 2022. After completing my SOC Analyst Co-op at Vancity Credit Union in December 2025, I expanded my focus into networking and cybersecurity. As a result, I earned my CompTIA Security+ (July 2026) and ISC2 CC (December 2025) certifications. Currently, I am in my final semester of the Computer Systems Technology program (specialized in Cloud Computing) at BCIT.",
-    "Hobby-wise, I’m a big fan of listening to house music while I work. Here is a playlist I really like: https://www.youtube.com/watch?v=xpvjPsme8_k",
+    "Hobby-wise, I’m a big fan of listening to house music while I work. Here is a playlist I really like: ",
   ],
   signoff: "Hope you find it interesting :)",
 };

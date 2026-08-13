@@ -96,7 +96,7 @@ export default function ProjectDetail() {
           </h1>
 
           <div className="flex flex-wrap items-baseline gap-2 mb-4 mt-1">
-            <span className="text-base text-ink-dim font-medium">
+            <span className="text-sm text-ink-dim font-medium">
               {project.context}
             </span>
             <span className="text-sm text-gray-400 font-medium ml-auto">
@@ -104,7 +104,7 @@ export default function ProjectDetail() {
             </span>
           </div>
 
-          <p className="text-lg text-ink-dim leading-relaxed mb-4">
+          <p className="text-base text-ink-dim leading-relaxed mb-4">
             {project.desc}
           </p>
 
@@ -162,7 +162,7 @@ export default function ProjectDetail() {
             <h3 className="text-lg font-bold tracking-wider text-ink-dim border-b border-[var(--line)] pb-2">
               Technologies Used
             </h3>
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="text-sm flex flex-wrap gap-2 pt-2">
               {project.tech.map((t, index) => (
                 <span key={t}>
                   {t}

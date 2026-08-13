@@ -81,49 +81,16 @@ export default function Projects() {
                   {/* <p className="desc">{p.desc}</p> */}
                   <p className="project-click-hint">Click to see detail</p>
 
-                  <div className="pill-row mt-1">
-                    {/* Display tech or categories as subtle white/translucent pills */}
-                    {p.tech.map((t) => (
-                      <span
-                        className="pill small bg-white/20 text-white border-0"
-                        key={t}
-                      >
+                  <div className="text-xs text-gray-100 font-medium">
+                    {p.tech.map((t, idx) => (
+                      <span key={t} className="inline-flex items-center">
                         {t}
+                        {idx < p.tech.length - 1 && (
+                          <span className="text-gray-100 mr-1">,</span>
+                        )}
                       </span>
                     ))}
                   </div>
-
-                  {/* <div className="links mt-2 pt-2 flex items-center justify-between text-xs font-semibold"  onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-4">
-                      {p.repo && (
-                        <a
-                          href={p.repo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white hover:underline"
-                        >
-                          Repo →
-                        </a>
-                      )}
-                      {p.demo && (
-                        <a
-                          href={p.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-white hover:underline"
-                        >
-                          Live →
-                        </a>
-                      )}
-                    </div>
-
-                    <a
-                      href={`${import.meta.env.BASE_URL}projects/${p.slug}`}
-                      className="text-[var(--terracotta)] bg-white/90 px-3 py-1 rounded-full hover:bg-white transition-colors"
-                    >
-                      Details →
-                    </a>
-                  </div> */}
                 </div>
               </article>
             ))

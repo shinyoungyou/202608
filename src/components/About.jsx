@@ -20,9 +20,28 @@ export default function About() {
 
         {/* Text Content */}
         <div className="space-y-4 text-gray-700 leading-relaxed flex-1">
-          {ABOUT.paragraphs.map((text, index) => (
-            <p key={index}>{text}</p>
-          ))}
+          {ABOUT.paragraphs.map((text, index) => {
+            const isLast = index === ABOUT.paragraphs.length -1;
+
+            return (
+              <div key={index} className="space-y-4">
+                <p>
+                  {text}{" "}
+                  {isLast && (
+                    <a
+                      href="https://www.youtube.com/watch?v=xpvjPsme8_k"
+                      className="underline block"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      youtube.com/watch?v=xpvjPsme8_k
+                    </a>
+                  )}
+                </p>
+              </div>
+            );
+          })}
+
           {ABOUT.signoff && (
             <p className="text-gray-500 italic text-sm pt-2">{ABOUT.signoff}</p>
           )}
