@@ -166,6 +166,7 @@ export const PROJECTS = [
     ],
     img: "img/smartiec/after-dashboard.png",
     repo: "https://github.com/khaiphan812/COMP3800-SmartIEC",
+    repoStatus: "private",
     demo: "https://youtu.be/2No5rb0r7HA",
     videos: [
       {
@@ -208,7 +209,7 @@ export const PROJECTS = [
     id: "Certification Implementation",
     slug: "certimpl",
     categories: ["Application Security", "Networking"],
-    desc: "Collection of network security tools including packet inspection via Wireshark and local HTTPS server implementations using OpenSSL/mkcert.",
+    desc: "Built a local HTTPS server using Node.js and OpenSSL, then troubleshot browser certificate validation failures by creating a trusted local CA with mkcert and configuring SANs to establish certificate trust.",
     tech: ["Node.js", "OpenSSL", "TLS/HTTPS"],
     contributions: [
       "Built a local HTTPS server using Node.js and OpenSSL to understand how TLS certificates establish trust and enable encrypted client-server communication.",
@@ -249,6 +250,7 @@ export const PROJECTS = [
     ],
     img: "img/passwordmngr/aws-complicated.png",
     repo: "https://github.com/Hazel-Jeong-dev/COMP3962_PasswordManager",
+    repoStatus: "private",
     demo: null,
     pdf: `${
       import.meta.env.BASE_URL
@@ -269,7 +271,7 @@ export const PROJECTS = [
       "Built an Android app in Flutter that queries the NIST National Vulnerability Database (NVD) API to search and track CVEs by severity for security engineers to triage vulnerability during on-call incidents when laptops are unavailable.",
     ],
     img: "img/cvelookup/preview.png",
-    repo: null,
+    repo: "https://github.com/shinyoungyou/cve_lookup",
     demo: null,
     videos: [
       {
@@ -292,10 +294,12 @@ export const PROJECTS = [
     desc: "Healthcare-focused mobile tool to scan food barcodes and identify potential allergens, improving food-tech accessibility.",
     tech: ["Barcode API", "Mobile First"],
     contributions: [
+      "Team Lead in the team of 5 project",
       "Developed an mobile-first web app to scan food's barcode to get to know potential allergic ingridients",
     ],
     img: "img/allergyscanner/preview.png",
     repo: "https://github.com/shinyoungyou/2800-202510-DTC11",
+    repoStatus: "public",
     demo: "https://two800-202510-dtc11.onrender.com/",
     images: [
       // "img/allergyscanner/scanning.png",
@@ -321,6 +325,7 @@ export const PROJECTS = [
     ],
     img: "img/slouchii/preview.png",
     repo: "https://github.com/shinyoungyou/nwHacks2025",
+    repoStatus: "public",
     demo: "https://devpost.com/software/slouchii",
   },
   {
@@ -330,6 +335,7 @@ export const PROJECTS = [
     // desc: "Study tracking app designed to help students log study hours and manage their time effectively. Implemented a custom stopwatch using asynchronous logic and a dynamic calendar for statistics.",
     desc: "Through our team’s survey, many students struggle with time management, finding it difficult to balance their studies with other responsibilities. To address this, we decided to create a study tracking app to help students log study hours and manage their time effectively. Study buddy is a mobile-friendly web app that provides tools to record study time and personalized insights based on performance.",
     tech: ["Bootstrap", "JavaScript", "Firebase", "HTML/CSS"],
+    repoStatus: "public",
     contributions: [
       "Team Lead",
       "Worked in a 3-member team to develop a study tracking app designed to help students log study hours and manage their time effectively.",
@@ -357,6 +363,7 @@ export const PROJECTS = [
     ],
     img: "img/langex/Screenshot 2026-08-10 at 10.25.22 PM.png",
     repo: "https://github.com/shinyoungyou/v2-language-exchange",
+    repoStatus: "public",
     demo: "https://language-exchange-app.azurewebsites.net/",
   },
   {
@@ -373,6 +380,7 @@ export const PROJECTS = [
     ],
     img: "img/slackmsg/Screenshot 2026-08-10 at 10.26.01 PM.png",
     repo: "https://github.com/shinyoungyou/slack-backup-proj",
+    repoStatus: "public",
     demo: null,
   },
 

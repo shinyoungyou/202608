@@ -61,14 +61,13 @@ export default function ProjectDetail() {
             {project.id}
           </h1>
 
-          <p className="text-lg text-ink-dim leading-relaxed mb-6">
+          <p className="text-lg text-ink-dim leading-relaxed mb-4">
             {project.desc}
           </p>
 
           {/* Action Links (Repo / Demo) */}
-          {/* Action Links (Repo / Demo) */}
           {(project.repo || project.demo) && (
-            <div className="flex flex-wrap gap-3 items-center text-sm mb-6">
+            <div className="flex flex-wrap gap-3 items-center text-sm">
               {project.repo && (
                 <span className="flex items-center">
                   <span className="font-semibold text-[var(--navy)] mr-1">
@@ -105,6 +104,13 @@ export default function ProjectDetail() {
                 </span>
               )}
             </div>
+          )}
+
+          {project.repoStatus === "private" && (
+            <span className="text-xs text-gray-500 ">
+              Repo is currently <i>private</i> due to NDA and/or team project
+              restrictions
+            </span>
           )}
         </header>
 
