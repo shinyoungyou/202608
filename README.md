@@ -1,4 +1,4 @@
-# portfolio-202608
+# 202608
 
 React + Vite version of the portfolio site. All content lives in one file
 (`src/data.js`) — you shouldn't need to touch any component to make routine
@@ -10,7 +10,7 @@ Your original repo had a `profile/` folder with `profile1.jpeg` and
 `bg1.jpeg`. Copy that folder into `public/profile/` here:
 
 ```
-portfolio-202608/
+202608/
 └── public/
     └── profile/
         ├── profile1.jpeg
@@ -51,7 +51,7 @@ Outputs static files to `dist/`.
 
 ## 5. Deploy to GitHub Pages
 
-`vite.config.js` is already set with `base: '/portfolio-202608/'` to match
+`vite.config.js` is already set with `base: '/202608/'` to match
 this repo name, so links resolve correctly once deployed.
 
 ```
@@ -61,7 +61,7 @@ npm run deploy
 This runs `gh-pages -d dist` (already wired up in `package.json`) and
 publishes the `dist/` folder to a `gh-pages` branch. Then in your repo's
 Settings → Pages, set the source to the `gh-pages` branch. Your site will be
-live at `https://<your-username>.github.io/portfolio-202608/`.
+live at `https://<your-username>.github.io/202608/`.
 
 ## Project structure
 
