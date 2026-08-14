@@ -1,32 +1,32 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ReactGA from "react-ga4";
 import Home from "./components/Home.jsx";
 import ProjectDetail from "./components/ProjectDetail.jsx";
 
-// Initialize Google Analytics with your Measurement ID
-// (Replace 'G-XXXXXXXXXX' with your actual Measurement ID from GA4)
-ReactGA.initialize("G-EHY3CQ6MYM");
+ReactGA.initialize("G-XXXXXXXXXX");
 
-// 1. Define the tracker hook (now focused on analytics logging if needed)
-function useUtmTracker() {
+// Component to handle the GitHub Pages 404 redirect query parameter
+function RedirectHandler() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const utmSource = params.get("utm_source");
-
-    if (utmSource) {
-      console.log(`Visitor arrived from source: ${utmSource}`);
-      // GA4 automatically captures UTM parameters out-of-the-box when a user lands on the page.
+    const p = params.get("p");
+    if (p) {
+      // Clean up the URL and navigate to the intended path
+      window.history.replaceState(null, null, window.location.pathname);
+      navigate(p);
     }
-  }, []);
+  }, [navigate]);
+
+  return null;
 }
 
-// 2. Call the hook inside your root App component
 export default function App() {
-  useUtmTracker();
-
   return (
     <BrowserRouter basename="/202608/">
+      <RedirectHandler />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
